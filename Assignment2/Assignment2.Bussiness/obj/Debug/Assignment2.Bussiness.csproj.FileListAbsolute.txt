@@ -1,0 +1,12 @@
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\Assignment2.Bussiness.dll.config
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\Assignment2.Bussiness.dll
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\Assignment2.Bussiness.pdb
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\EntityFramework.dll
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\EntityFramework.SqlServer.dll
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\EntityFramework.xml
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\EntityFramework.SqlServer.xml
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.csproj.CoreCompileInputs.cache
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.csproj.CopyComplete
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.dll
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.pdb
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.csprojResolveAssemblyReference.cache
