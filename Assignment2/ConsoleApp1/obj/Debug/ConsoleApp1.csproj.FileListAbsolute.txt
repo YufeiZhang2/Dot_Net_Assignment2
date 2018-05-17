@@ -1,0 +1,12 @@
+C:\Dot_Net_Assignment2\Assignment2\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Dot_Net_Assignment2\Assignment2\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Dot_Net_Assignment2\Assignment2\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Dot_Net_Assignment2\Assignment2\ConsoleApp1\bin\Debug\EntityFramework.dll
+C:\Dot_Net_Assignment2\Assignment2\ConsoleApp1\bin\Debug\EntityFramework.SqlServer.dll
+C:\Dot_Net_Assignment2\Assignment2\ConsoleApp1\bin\Debug\EntityFramework.xml
+C:\Dot_Net_Assignment2\Assignment2\ConsoleApp1\bin\Debug\EntityFramework.SqlServer.xml
+C:\Dot_Net_Assignment2\Assignment2\ConsoleApp1\obj\Debug\ConsoleApp1.csprojResolveAssemblyReference.cache
+C:\Dot_Net_Assignment2\Assignment2\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Dot_Net_Assignment2\Assignment2\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CopyComplete
+C:\Dot_Net_Assignment2\Assignment2\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Dot_Net_Assignment2\Assignment2\ConsoleApp1\obj\Debug\ConsoleApp1.pdb

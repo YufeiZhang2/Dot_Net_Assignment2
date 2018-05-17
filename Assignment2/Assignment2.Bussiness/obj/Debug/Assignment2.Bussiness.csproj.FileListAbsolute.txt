@@ -1,0 +1,6 @@
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\Assignment2.Bussiness.dll
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\Assignment2.Bussiness.pdb
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.csprojResolveAssemblyReference.cache
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.csproj.CoreCompileInputs.cache
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.dll
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.pdb
