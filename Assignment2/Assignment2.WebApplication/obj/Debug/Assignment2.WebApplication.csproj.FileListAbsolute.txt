@@ -256,10 +256,6 @@ C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\roslyn\Microso
 C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\roslyn\System.IO.Compression.dll
 C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\roslyn\VBCSCompiler.exe
 C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\ApplicationInsights.config
-C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\DatabaseTest.mdf
-C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\DatabaseTest_log.ldf
-C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\Database.mdf
-C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\Database_log.ldf
 C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\Assignment2.WebApplication.dll.config
 C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\Assignment2.WebApplication.dll
 C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\Assignment2.WebApplication.pdb
