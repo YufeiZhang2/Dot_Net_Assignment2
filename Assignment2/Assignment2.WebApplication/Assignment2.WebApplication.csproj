@@ -190,7 +190,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApproverController.cs" />
+    <Compile Include="Controllers\EditorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MaintainerController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -258,6 +261,15 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Maintainer\Index.cshtml" />
+    <Content Include="Views\Maintainer\AddWeather.cshtml" />
+    <Content Include="Views\Editor\Index.cshtml" />
+    <Content Include="Views\Editor\EditorReport.cshtml" />
+    <Content Include="Views\Editor\AddFixedRule.cshtml" />
+    <Content Include="Views\Editor\AddDataDrivenRule.cshtml" />
+    <Content Include="Views\Approver\Index.cshtml" />
+    <Content Include="Views\Approver\ApproverReportForRule.cshtml" />
+    <Content Include="Views\Approver\ApproverReportForEditor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

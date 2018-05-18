@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace Assignment2.WebApplication.Controllers
+{
+    public class MaintainerController : Controller
+    {
+        // GET: Maintainer
+        public ActionResult Index()
+        {
+            return View();
+        }
+    }
+}
