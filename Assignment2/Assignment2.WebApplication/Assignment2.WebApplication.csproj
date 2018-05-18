@@ -53,6 +53,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -189,9 +191,17 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="AspNetRole.cs" />
+    <Compile Include="AspNetUser.cs" />
+    <Compile Include="AspNetUserClaim.cs" />
+    <Compile Include="AspNetUserLogin.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\WeatherController.cs" />
+    <Compile Include="C__MigrationHistory.cs" />
+    <Compile Include="DataDrivenRule.cs" />
+    <Compile Include="FixedRule.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -200,6 +210,8 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="WeartherForecastModel.cs" />
+    <Compile Include="WeatherInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -258,6 +270,10 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Weather\Index.cshtml" />
+    <Content Include="Views\Weather\DataMaintainer.cshtml" />
+    <Content Include="Views\Weather\RuleEditor.cshtml" />
+    <Content Include="Views\Weather\RuleApprover.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -274,6 +290,16 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Assignment2.Bussiness\Assignment2.Bussiness.csproj">
+      <Project>{93b0b663-5fda-46ce-a2c7-1d85fa493e6f}</Project>
+      <Name>Assignment2.Bussiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Assignment2.Database\Assignment2.Database.csproj">
+      <Project>{d77d9fa4-8164-4d11-bcba-be7956ea330e}</Project>
+      <Name>Assignment2.Database</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

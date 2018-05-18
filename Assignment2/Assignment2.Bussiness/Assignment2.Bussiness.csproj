@@ -44,5 +44,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Assignment2.Database\Assignment2.Database.csproj">
+      <Project>{d77d9fa4-8164-4d11-bcba-be7956ea330e}</Project>
+      <Name>Assignment2.Database</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

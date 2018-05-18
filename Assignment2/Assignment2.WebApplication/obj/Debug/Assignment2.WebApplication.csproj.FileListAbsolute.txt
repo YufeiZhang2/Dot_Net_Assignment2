@@ -118,3 +118,9 @@ C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\obj\Debug\Assignme
 C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\obj\Debug\Assignment2.WebApplication.csproj.CopyComplete
 C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\obj\Debug\Assignment2.WebApplication.dll
 C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\obj\Debug\Assignment2.WebApplication.pdb
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\Database.mdf
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\Database_log.ldf
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\Assignment2.Bussiness.dll
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\Assignment2.Database.dll
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\Assignment2.Bussiness.pdb
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\Assignment2.Database.pdb
