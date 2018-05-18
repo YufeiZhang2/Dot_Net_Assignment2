@@ -11,6 +11,7 @@
     <AssemblyName>Assignment2.Database</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -64,22 +64,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AspNetRole.cs" />
-    <Compile Include="AspNetUser.cs" />
-    <Compile Include="AspNetUserClaim.cs" />
-    <Compile Include="AspNetUserLogin.cs" />
-    <Compile Include="DataDrivenRule.cs" />
-    <Compile Include="FixedRule.cs" />
-    <Compile Include="Migrations\201805180941024_InitialModel.cs" />
-    <Compile Include="Migrations\201805180941024_InitialModel.Designer.cs">
-      <DependentUpon>201805180941024_InitialModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="DBContext\AspNetRoles.cs" />
+    <Compile Include="DBContext\AspNetUserClaims.cs" />
+    <Compile Include="DBContext\AspNetUserLogins.cs" />
+    <Compile Include="DBContext\AspNetUsers.cs" />
+    <Compile Include="DBContext\Context.cs" />
+    <Compile Include="DBContext\C__MigrationHistory.cs" />
+    <Compile Include="DBContext\DataDrivenRules.cs" />
+    <Compile Include="DBContext\FixedRules.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RulesContext.cs" />
-    <Compile Include="WeatherInfo.cs" />
+    <Compile Include="DBContext\WeatherInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DatabaseTest.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DatabaseTest_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>DatabaseTest.mdf</DependentUpon>
+    </Content>
     <Content Include="Database.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -106,10 +109,6 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805180941024_InitialModel.resx">
-      <DependentUpon>201805180941024_InitialModel.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
