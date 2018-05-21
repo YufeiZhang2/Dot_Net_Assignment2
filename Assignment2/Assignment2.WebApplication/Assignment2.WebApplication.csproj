@@ -200,6 +200,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\MaintainerModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -262,7 +263,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Maintainer\Index.cshtml" />
-    <Content Include="Views\Maintainer\AddWeather.cshtml" />
+    <Content Include="Views\Maintainer\AddWeatherinfo.cshtml" />
     <Content Include="Views\Editor\Index.cshtml" />
     <Content Include="Views\Editor\EditorReport.cshtml" />
     <Content Include="Views\Editor\AddFixedRule.cshtml" />

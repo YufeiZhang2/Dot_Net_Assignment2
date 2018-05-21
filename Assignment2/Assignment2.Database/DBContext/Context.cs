@@ -80,7 +80,7 @@ namespace Assignment2.Database
                 .IsUnicode(false);
 
             modelBuilder.Entity<WeatherInfo>()
-                .Property(e => e.LastMaintainerID)
+                .Property(e => e.LastMaintainerId)
                 .IsUnicode(false);
         }
     }
