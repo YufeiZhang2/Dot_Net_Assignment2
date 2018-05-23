@@ -1,4 +1,4 @@
-﻿@model Assignment2.WebApplication.Models.MaintainerModels
+﻿@model Assignment2.WebApplication.ViewModels.MaintainerViewModel
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -7,7 +7,20 @@
     ViewBag.Title = "Maintainer";
     
 }
+@*This is the view for Maintainer*@
 <h2>This is Maintainer Page.</h2>
-<h2>@Model.Day</h2>
+@if (Model.Weatherinfos.Count == 0)
+{
+    <text>There is no data found!</text>
+}
+else
+{
+    <ul>
+        @foreach (var wetherinfo in Model.Weatherinfos)
+        {
+            <li>@wetherinfo.Day</li>
+        }
+    </ul>
+}
 
-<p>This is the table of Weather information</p>
+<p>This is the Weather information of the week!</p>

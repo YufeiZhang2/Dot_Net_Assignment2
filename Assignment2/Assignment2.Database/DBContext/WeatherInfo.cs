@@ -12,15 +12,19 @@ namespace Assignment2.Database
         [Key]
         [StringLength(20)]
         public string Day { get; set; }
-    
-        public string Weather { get; set; }
         
+        [Required]
+        [StringLength(30)]
+        public string Weather { get; set; }
+
+        [Required]
         [StringLength(50)]
         public string Outfit { get; set; }
 
+        [Required]
+        [StringLength(50)]
         public int Temperature { get; set; }
 
-      
         [StringLength(50)]
         public string LastMaintainerId { get; set; }
     }
