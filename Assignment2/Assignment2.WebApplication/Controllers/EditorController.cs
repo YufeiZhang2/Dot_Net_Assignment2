@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Assignment2.Database;
-using Assignment2.Bussiness;
 using Assignment2.WebApplication.Models;
 
 
@@ -12,28 +11,32 @@ namespace Assignment2.WebApplication.Controllers
 {
     public class EditorController : Controller
     {
-        //private DataDrivenRuleEditor rules = new DataDrivenRuleEditor();
+        private Bussiness.DataDrivenRuleEditor rules = new Bussiness.DataDrivenRuleEditor();
 
-        private ApplicationDbContext _context;
+       // private ApplicationDbContext _context;
 
-        public EditorController()
-        {
-            _context = new ApplicationDbContext();
-        }
+        //public EditorController()
+        //{
+        //    _context = new ApplicationDbContext();
+        //}
 
-        protected override void Dispose(bool disposing)
-        {
-            _context.Dispose();
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    _context.Dispose();
+        //}
 
         // GET: Editor
         public ActionResult Index()
         {
-            var rules = _context.DataDrivenRules;
-            return View(rules);
+            return View(rules.AllDataDrivenRules.OfType<DataDrivenRules>().ToList());
         }
 
-        public ActionResult AddDataDriveRule()
+        public ActionResult AddDataDrivenRule()
+        {
+            return View();
+        }
+
+        public ActionResult AddFixedRule()
         {
             return View();
         }

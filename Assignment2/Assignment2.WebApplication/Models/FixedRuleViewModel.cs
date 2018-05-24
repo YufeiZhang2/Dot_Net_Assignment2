@@ -6,18 +6,14 @@ using Assignment2.Database;
 
 namespace Assignment2.WebApplication.Models
 {
-    public class DataDrivenRuleViewModel
+    public class FixedRuleViewModel
     {
-        public List<DataDrivenRules> Rules { get; set; }
+        public List<FixedRules> Rules { get; set; }
 
         public int Id { get; set; }
         public string Question { get; set; }
 
-        public string QuestionColumn { get; set; }
-
         public string Answer { get; set; }
-
-        public string AnswerColumn { get; set; }
 
         public string CurrentStatus { get; set; }
 
