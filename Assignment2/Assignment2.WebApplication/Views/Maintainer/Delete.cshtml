@@ -1,0 +1,70 @@
+﻿@model Assignment2.WebApplication.Models.Maintainer
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Maintainer Delete Page</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Weather)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weather)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Outfit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Outfit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Temperature)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Temperature)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <div class="form-group">
+                        <input type="submit" value="Delete" class="button"/>
+                    </div>
+                </div>
+        <head>
+            <style>
+                .button {
+                    background-color: black;
+                    border: black;
+                    color: white;
+                    padding: 8px 16px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 14px;
+                    margin: 2px 2px;
+                    cursor: pointer;
+                    border-radius: 6px;
+                }  
+            </style>
+        </head>
+    }
+<div>
+ <button onclick="location.href = '@Url.Action("Index", "Maintainer")';" class="button">Cancel</button>
+</div>
+</div>

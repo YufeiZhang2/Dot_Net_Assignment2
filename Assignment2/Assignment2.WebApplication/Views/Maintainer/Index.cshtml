@@ -1,79 +1,59 @@
-﻿@model Assignment2.WebApplication.ViewModels.MaintainerViewModel
+﻿@model IEnumerable<Assignment2.WebApplication.Models.Maintainer>
+
 @{
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@{
-    ViewBag.Title = "Maintainer";
-    
-}
-@*This is the view for Maintainer*@
-<h2>This is Maintainer Page</h2>
-@if (Model.Weatherinfos.Count == 0)
-{
-    <text>There is no data found!</text>
-}
-else
-{
+<h2>Weather Info</h2>
 
-    <head>
-        <style>
-            th, td {
-                text-align: Center;
+<table class="table">
+    <tr>
+        <th>Weather </th>
+        <th>Outfit</th>
+        <th>Temperature</th>
+        <th>Last Maintainer</th>
+        <th></th>
+    </tr>
 
-            }
-            tr:nth-child(even) {background-color: lightgray}
-        </style>
-    </head>
-   
-        
-    <table id="weather" class="table table-bordered table-striped">
-
-    
+    @foreach (var item in Model) {
         <tr>
-            <th>Day</th>
-            <th>Weather</th>
-            <th>Outfit</th>
-            <th>Temperature</th>
-            <th>Last Maintainer</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weather)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Outfit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Temperature)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastMaintainerId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Day }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Day }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Day })
+            </td>
         </tr>
-        <tbody>
+    }
 
-        @foreach (var wetherinfo in Model.Weatherinfos)
-        {
-            <tr>
-                <td>@wetherinfo.Day</td>
-                <td>@wetherinfo.Weather</td>
-                <td>@wetherinfo.Outfit</td>
-                <td>@wetherinfo.Temperature</td>
-                <td>@wetherinfo.LastMaintainerId</td>
-
-            </tr>
-        }
-
-
-        </tbody>
-        <thead>
-    </table>
-
-    <head>
-        <style>
-            .button {
-                background-color: black;
-                border: black;
-                color: white;
-                padding: 8px 10px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 16px;
-                margin: 2px 2px;
-                cursor: pointer;
-                border-radius: 6px;
-            }  
-        </style>
-    </head>
-    <button type= "submit" class="button">Add</button>
-}
-
-
+</table>
+<head>
+    <style>
+        .button {
+            background-color: black;
+            border: black;
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 2px 2px;
+            cursor: pointer;
+            border-radius: 6px;
+        }  
+    </style>
+</head>
+<button onclick="location.href = '@Url.Action("Save", "Maintainer")';" class="button">Add New</button>
