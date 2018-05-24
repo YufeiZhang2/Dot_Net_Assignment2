@@ -499,3 +499,7 @@ C:\Users\cliffys\Documents\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplic
 C:\Users\cliffys\Documents\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\obj\Debug\Assignment2.WebApplication.csproj.CopyComplete
 C:\Users\cliffys\Documents\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\obj\Debug\Assignment2.WebApplication.dll
 C:\Users\cliffys\Documents\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\obj\Debug\Assignment2.WebApplication.pdb
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\DatabaseTest.mdf
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\DatabaseTest_log.ldf
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\Database.mdf
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\Database_log.ldf

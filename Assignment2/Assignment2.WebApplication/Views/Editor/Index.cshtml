@@ -2,10 +2,60 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@{
-    ViewBag.Title = "Editor";
-}
+@using Assignment2.Database
+@model List<DataDrivenRules>
 
-<h2>Rule Editor</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Editor</title>
 
-<p>Here are the tables of rules</p>
+    <style>
+        th, td {
+            text-align: Center;
+        }
+
+        tr:nth-child(even) {
+            background-color: lightgray
+        }
+    </style>
+
+</head>
+<body>
+    <h2>Rule Editor</h2>
+    @if (Model.Count == 0)
+    {
+        <text>There is no data found!</text>
+    }
+    else
+    {
+        <table>
+            <tr>
+                <th>Question</th>
+                <th>Question Column</th>
+                <th>Answer</th>
+                <th>Answer Column</th>
+                <th>Answer</th>
+                <th>Last Editor ID</th>
+                <th>Status</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(x => item.Question)</td>
+                    <td>@Html.DisplayFor(x => item.QuestionColumn)</td>
+                    <td>@Html.DisplayFor(x => item.Answer)</td>
+                    <td>@Html.DisplayFor(x => item.AnswerColumn)</td>
+                    <td>@Html.DisplayFor(x => item.LastEditorID)</td>
+                    <td>@Html.DisplayFor(x => item.CurrentStatus)</td>
+                    <td>@Html.ActionLink("Edit", "Edit", new { id = item.Id })</td>
+                    <td>@Html.ActionLink("Delete", "Delete", new { id = item.Id })</td>
+                </tr>
+            }
+        </table>
+    }
+    <p>@Html.ActionLink("Add new data drive rule", "Create")</p>
+</body>
+</html>
