@@ -8,19 +8,72 @@
     
 }
 @*This is the view for Maintainer*@
-<h2>This is Maintainer Page.</h2>
+<h2>This is Maintainer Page</h2>
 @if (Model.Weatherinfos.Count == 0)
 {
     <text>There is no data found!</text>
 }
 else
 {
-    <ul>
+
+    <head>
+        <style>
+            th, td {
+                text-align: Center;
+
+            }
+            tr:nth-child(even) {background-color: lightgray}
+        </style>
+    </head>
+   
+        
+    <table id="weather" class="table table-bordered table-striped">
+
+    
+        <tr>
+            <th>Day</th>
+            <th>Weather</th>
+            <th>Outfit</th>
+            <th>Temperature</th>
+            <th>Last Maintainer</th>
+        </tr>
+        <tbody>
+
         @foreach (var wetherinfo in Model.Weatherinfos)
         {
-            <li>@wetherinfo.Day</li>
+            <tr>
+                <td>@wetherinfo.Day</td>
+                <td>@wetherinfo.Weather</td>
+                <td>@wetherinfo.Outfit</td>
+                <td>@wetherinfo.Temperature</td>
+                <td>@wetherinfo.LastMaintainerId</td>
+
+            </tr>
         }
-    </ul>
+
+
+        </tbody>
+        <thead>
+    </table>
+
+    <head>
+        <style>
+            .button {
+                background-color: black;
+                border: black;
+                color: white;
+                padding: 8px 10px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 2px 2px;
+                cursor: pointer;
+                border-radius: 6px;
+            }  
+        </style>
+    </head>
+    <button type= "submit" class="button">Add</button>
 }
 
-<p>This is the Weather information of the week!</p>
+

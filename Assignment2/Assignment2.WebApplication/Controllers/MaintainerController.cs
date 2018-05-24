@@ -26,6 +26,9 @@ namespace Assignment2.WebApplication.Controllers
 
         public ActionResult AddWeatherinfo()
         {
+
+            
+
             return View();
         }
         
@@ -34,7 +37,9 @@ namespace Assignment2.WebApplication.Controllers
         {
             var weatherInfo = new List<WeatherInfo>
             {
-                
+                new WeatherInfo { Day = "Sunday", Weather = "Sunny", Outfit = "Sando", Temperature = 34},
+                new WeatherInfo { Day = "Monday", Weather = "Rainy", Outfit = "Jacket", Temperature = 15},
+                new WeatherInfo { Day = "Tuesday", Weather = "Windy", Outfit = "Coat", Temperature = 25}
             };
 
             var viewModel = new MaintainerViewModel
