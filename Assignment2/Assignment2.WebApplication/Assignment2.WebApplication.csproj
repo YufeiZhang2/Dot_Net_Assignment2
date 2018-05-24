@@ -199,6 +199,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DataDrivenRuleViewModel.cs" />
+    <Compile Include="Models\FixedRuleViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Maintainer.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -295,6 +297,10 @@
     <ProjectReference Include="..\Assignment2.Bussiness\Assignment2.Bussiness.csproj">
       <Project>{93b0b663-5fda-46ce-a2c7-1d85fa493e6f}</Project>
       <Name>Assignment2.Bussiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Assignment2.Database\Assignment2.Database.csproj">
+      <Project>{d77d9fa4-8164-4d11-bcba-be7956ea330e}</Project>
+      <Name>Assignment2.Database</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

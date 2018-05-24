@@ -13,5 +13,15 @@ namespace Assignment2.WebApplication.Controllers
         {
             return View();
         }
+
+        public ActionResult AddDataDrivenRule()
+        {
+            return View();
+        }
+
+        public ActionResult AddFixedRule()
+        {
+            return View();
+        }
     }
 }
