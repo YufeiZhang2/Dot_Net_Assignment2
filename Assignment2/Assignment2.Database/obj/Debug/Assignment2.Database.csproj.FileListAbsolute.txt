@@ -58,3 +58,4 @@ C:\Dot_Net_Assignment2\Assignment2\Assignment2.Database\obj\Debug\Assignment2.Da
 C:\Dot_Net_Assignment2\Assignment2\Assignment2.Database\obj\Debug\Assignment2.Database.csproj.CopyComplete
 C:\Dot_Net_Assignment2\Assignment2\Assignment2.Database\obj\Debug\Assignment2.Database.dll
 C:\Dot_Net_Assignment2\Assignment2\Assignment2.Database\obj\Debug\Assignment2.Database.pdb
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.Database\obj\Debug\Assignment2.Database.csprojResolveAssemblyReference.cache
