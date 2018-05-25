@@ -15,6 +15,7 @@ namespace Assignment2.Database
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Question Column")]
         public string QuestionColumn { get; set; }
 
         [Required]
@@ -22,6 +23,7 @@ namespace Assignment2.Database
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Answer Column")]
         public string AnswerColumn { get; set; }
 
         [Required]

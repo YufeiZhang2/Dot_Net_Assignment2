@@ -22,6 +22,20 @@ select {
     max-width: 280px;
 }
 
+.button {
+    background-color: black;
+    border: black;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 2px 2px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
 
 textarea {
     width: 100%;
