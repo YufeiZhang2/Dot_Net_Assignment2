@@ -1,17 +1,3 @@
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\Database.mdf
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\Database_log.ldf
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\Assignment2.Bussiness.dll
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\Assignment2.Bussiness.pdb
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\Assignment2.Database.dll
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\EntityFramework.dll
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\Assignment2.Database.pdb
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\Assignment2.Database.dll.config
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\EntityFramework.xml
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.csprojResolveAssemblyReference.cache
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.csproj.CoreCompileInputs.cache
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.csproj.CopyComplete
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.dll
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.pdb
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\DatabaseTest.mdf
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\DatabaseTest_log.ldf
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\Database.mdf

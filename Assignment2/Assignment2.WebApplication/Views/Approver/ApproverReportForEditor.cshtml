@@ -6,7 +6,43 @@
 @{
     ViewBag.Title = "Approver - Report for editors";
 }
+<style>
 
-<h2>Report for editors</h2>
+    u { 
+        text-decoration: underline;
+    }
 
-<p>This is the report for editors</p>
+     
+</style>
+
+<br />
+<a href='@Url.Action("index", "Approver")'>
+    <input type='button' value='Back' />
+</a>
+<br />
+
+<h2><strong>Report for editors:</strong></h2>
+<br />
+<div id="editorReport">
+
+    <br />
+    <h3><u>Total count of approved rules for Zhou Amy: 6</u> </h3>
+    <br />
+    <h3><u>Total count of rejected rules for the Zhou Amy: 4</u></h3>
+    <br />
+    <h3><u>Total count of unchecked rules for Zhou Amy: 1</u> </h3>
+    <br />
+    <h3><u>The success rate for Zhou Amy: 60%</u> </h3>
+    <br />
+    <h3><u>Total count of approved rules for Crys Bui: 7</u> </h3>
+    <br />
+    <h3><u>Total count of rejected rules for the Crys Bui: 3</u> </h3>
+    <br />
+    <h3><u>Total count of unchecked rules for Crys Bui: 0</u> </h3>
+    <br />
+    <h3><u>The success rate for Crys Bui: 70 %</u> </h3>
+    <br />
+    <h3><u>The average success rate: 65%</u> </h3>
+    <br />
+
+</div>

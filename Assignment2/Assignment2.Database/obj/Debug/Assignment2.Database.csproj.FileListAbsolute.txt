@@ -1,17 +1,3 @@
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Database\bin\Debug\Database.mdf
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Database\bin\Debug\Database_log.ldf
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Database\bin\Debug\Assignment2.Database.dll.config
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Database\bin\Debug\Assignment2.Database.dll
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Database\bin\Debug\Assignment2.Database.pdb
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Database\bin\Debug\EntityFramework.dll
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Database\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Database\bin\Debug\EntityFramework.xml
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Database\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Database\obj\Debug\Assignment2.Database.csprojResolveAssemblyReference.cache
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Database\obj\Debug\Assignment2.Database.csproj.CoreCompileInputs.cache
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Database\obj\Debug\Assignment2.Database.csproj.CopyComplete
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Database\obj\Debug\Assignment2.Database.dll
-C:\Users\zhangyufei\source\Dot_Net_Assignment2\Assignment2\Assignment2.Database\obj\Debug\Assignment2.Database.pdb
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Database\bin\Debug\DatabaseTest.mdf
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Database\bin\Debug\DatabaseTest_log.ldf
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Database\bin\Debug\Database.mdf

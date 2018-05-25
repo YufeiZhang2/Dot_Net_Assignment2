@@ -13,5 +13,16 @@ namespace Assignment2.WebApplication.Controllers
         {
             return View();
         }
+
+        public ActionResult ApproverReportForRule()
+        {
+            return View();
+        }
+
+        public ActionResult ApproverReportForEditor()
+        {
+            return View();
+        }
+
     }
 }

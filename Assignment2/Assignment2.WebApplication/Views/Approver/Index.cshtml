@@ -7,6 +7,74 @@
     ViewBag.Title = "Approver";
 }
 
-<h2>Rule Approver</h2>
+<style>
 
-<p>Here is a table of unchecked rules</p>
+
+</style>
+<p><h2><strong>Welcome! Approver.</strong></h2></p>
+<br/>
+<a href='@Url.Action("ApproverReportForRule", "Approver")'>
+    <input type='button' value='Go to report' />
+</a>
+<br/>
+<br />
+<a href='@Url.Action("ApproverReportForEditor", "Approver")'>
+    <input type='button' value='Go to report for editor' />
+</a>
+<br />
+<p><h2><strong>The Unchecked Rules:</strong></h2></p>
+<br/>
+<h3 ><strong>Fixed Rules:</strong></h3>
+<table class="table">
+    <tr>
+        <td>ID</td>
+        <td>Question</td>
+        <td>Ansewer</td>
+        <td>Current Status</td>
+        <td>Last Editor ID</td>
+        <td>Approve</td>
+        <td>Reject</td>
+    </tr>
+
+    <tr>
+        <td>01</td>
+        <td>How are you?</td>
+        <td>Great!</td>
+        <td>Unchecked</td>
+        <td>yufei.z222@gmail.com</td>
+        <td><button>approve</button></td>
+        <td><button>reject</button></td>
+    </tr>
+
+</table>
+<br/>
+<br/>
+
+<h3><strong>Data-Driven Rules:</strong></h3>
+<table class="table">
+    <tr>
+        <td>ID</td>
+        <td>Question</td>
+        <td>Question Column</td>
+        <td>Ansewer</td>
+        <td>Answer Column</td>
+        <td>Current Status</td>
+        <td>Last Editor ID</td>
+        <td>Approve</td>
+        <td>Reject</td>
+    </tr>
+
+    <tr>
+        <td>03</td>
+        <td>Invalid Q *</td>
+        <td>Day</td>
+        <td>Invalid A *</td>
+        <td>Weather</td>
+        <td>Unchecked</td>
+        <td>zhouamym@gmail.com</td>
+        <td><button>approve</button></td>
+        <td><button>reject</button></td>
+    </tr>
+
+</table>
+
