@@ -199,8 +199,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\DataDrivenRuleViewModel.cs" />
-    <Compile Include="Models\FixedRuleViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Maintainer.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
