@@ -2,41 +2,155 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Rule Editor</title>
+@{
+    ViewBag.Title = "Editor";
+}
+@using Assignment2.WebApplication.Controllers
+@using Assignment2.Database
+@model AllLists
 
-    <style>
-        .button {
-            background-color: black;
-            border: black;
-            color: white;
-            padding: 8px 16px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 14px;
-            margin: 2px 2px;
-            cursor: pointer;
-            border-radius: 6px;
+
+<h2>Rule Editor</h2>
+<p>Welcome! Editor.</p>
+<hr />
+
+<p>Add new rules or see report:</p>
+@using (Html.BeginForm())
+{
+    @Html.ActionLink("Add new fixed rule", "AddFixedRule")
+    <br />
+    @Html.ActionLink("Add data-driven rule", "AddDataDrivenRule")
+    <br />
+    @Html.ActionLink("See Report", "EditorReport")
+}
+
+<hr />
+
+<h3>All rules that have not yet been approved or rejected.</h3>
+
+<p>Editable rules - Fixed Rules:</p>
+
+<table class="table">
+    <tr>
+        <th>Rule ID</th>
+        <th>Question</th>
+        <th>Answer</th>
+        <th>Status</th>
+        <th>Last Editor</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    @if (Model.UncheckedFixedRules.Count > 0)
+    {
+        foreach (var item in Model.UncheckedFixedRules)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Question</td>
+                <td>@item.Answer</td>
+                <td>@item.CurrentStatus</td>
+                <td>@item.LastEditorID</td>
+
+                <td><button>Edit</button></td>
+                <td><button>Delete</button></td>
+            </tr>
         }
-    </style>
-</head>
+    }
+</table>
 
-<body>
-    <h2>Rule Editor</h2>
+<p>Editable rules - Data-driven Rules:</p>
 
-    <br/>
+<table class="table">
+    <tr>
+        <th>Rule ID</th>
+        <th>Question</th>
+        <th>QuestionColumn</th>
+        <th>Answer</th>
+        <th>AnswerColumn</th>
+        <th>Status</th>
+        <th>Last Editor</th>
+        <th></th>
+        <th></th>
+    </tr>
 
-    <a href='@Url.Action("AddFixedRule", "Editor")'>
-        <input type='button' class="button" value='Add new fixed rule' />
-    </a>
+    @if (Model.UncheckedDataDrivenRules.Count > 0)
+    {
+        foreach (var item in Model.UncheckedDataDrivenRules)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Question</td>
+                <td>@item.QuestionColumn</td>
+                <td>@item.Answer</td>
+                <td>@item.AnswerColumn</td>
+                <td>@item.CurrentStatus</td>
+                <td>@item.LastEditorID</td>
+                
+                <td><button>Edit</button></td>
+                <td><button>Delete</button></td>
+            </tr>
+        }
+    }
+</table>
 
-    <a href='@Url.Action("AddDataDrivenRule", "Editor")'>
-        <input type='button' class="button" value='Add new data-driven rule' />
-    </a>
-   
-</body>
-</html>
+<hr />
+<h3>All rules that have been rejected. You cannot edit anymore.</h3>
+
+
+<p>Rejected rules - Fixed Rules:</p>
+
+<table class="table">
+    <tr>
+        <th>Rule ID</th>
+        <th>Question</th>
+        <th>Answer</th>
+        <th>Status</th>
+        <th>Last Editor</th>
+    </tr>
+
+    @if (Model.RejectedFixedRules.Count > 0)
+    {
+        foreach (var item in Model.RejectedFixedRules)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Question</td>
+                <td>@item.Answer</td>
+                <td>@item.CurrentStatus</td>
+                <td>@item.LastEditorID</td>
+            </tr>
+        }
+    }
+</table>
+
+<p>Rejected rules - Data-driven Rules:</p>
+
+<table class="table">
+    <tr>
+        <th>Rule ID</th>
+        <th>Question</th>
+        <th>QuestionColumn</th>
+        <th>Answer</th>
+        <th>AnswerColumn</th>
+        <th>Status</th>
+        <th>Last Editor</th>
+    </tr>
+
+    @if (Model.RejectedDataDrivenRules.Count > 0)
+    {
+        foreach (var item in Model.RejectedDataDrivenRules)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Question</td>
+                <td>@item.QuestionColumn</td>
+                <td>@item.Answer</td>
+                <td>@item.AnswerColumn</td>
+                <td>@item.CurrentStatus</td>
+                <td>@item.LastEditorID</td>
+            </tr>
+        }
+    }
+</table>
+

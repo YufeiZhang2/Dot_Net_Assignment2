@@ -77,3 +77,4 @@ C:\Users\zhangyufei\source\repos\Dot_Net_Assignment2\Assignment2\Assignment2.Dat
 C:\Users\zhangyufei\source\repos\Dot_Net_Assignment2\Assignment2\Assignment2.Database\obj\Debug\Assignment2.Database.csproj.CopyComplete
 C:\Users\zhangyufei\source\repos\Dot_Net_Assignment2\Assignment2\Assignment2.Database\obj\Debug\Assignment2.Database.dll
 C:\Users\zhangyufei\source\repos\Dot_Net_Assignment2\Assignment2\Assignment2.Database\obj\Debug\Assignment2.Database.pdb
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Database\obj\Debug\Assignment2.Database.csprojResolveAssemblyReference.cache
