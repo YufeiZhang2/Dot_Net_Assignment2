@@ -1,57 +1,12 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@using Assignment2.Database
-@model DataDrivenRules
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Add Data-driven Rule</title>
 
-    <style>
-        .button {
-            background-color: black;
-            border: black;
-            color: white;
-            padding: 8px 16px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 14px;
-            margin: 2px 2px;
-            cursor: pointer;
-            border-radius: 6px;
-        }
-    </style>
-</head>
 
-<body>
-    <h2>Add new data-driven rule</h2>
+@{
+    ViewBag.Title = "Editor - Add new data-driven rule";
+}
 
-    <br/>
+<h2>Add new data-driven rule</h2>
 
-    @using (Html.BeginForm("AddDataDrivenRule", "EditorController"))
-    {
-        <div class="form-group">
-            @Html.LabelFor(m => m.Question)
-            @Html.TextBoxFor(m => m.Question, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.QuestionColumn)
-            @Html.TextBoxFor(m => m.QuestionColumn, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Answer)
-            @Html.TextBoxFor(m => m.Answer, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.AnswerColumn)
-            @Html.TextBoxFor(m => m.AnswerColumn, new { @class = "form-control" })
-        </div>
-
-        <button type="submit" class="button">Add</button>
-        <button type="submit" class="button">Cancel</button>
-    }
-</body>
-</html>
+<p>This is the form to add new data-driven rule</p>
