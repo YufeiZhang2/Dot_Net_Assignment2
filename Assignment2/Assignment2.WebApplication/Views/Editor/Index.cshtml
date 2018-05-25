@@ -2,10 +2,41 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@{
-    ViewBag.Title = "Editor";
-}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Rule Editor</title>
 
-<h2>Rule Editor</h2>
+    <style>
+        .button {
+            background-color: black;
+            border: black;
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 2px 2px;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+    </style>
+</head>
 
-<p>Here are the tables of rules</p>
+<body>
+    <h2>Rule Editor</h2>
+
+    <br/>
+
+    <a href='@Url.Action("AddFixedRule", "Editor")'>
+        <input type='button' class="button" value='Add new fixed rule' />
+    </a>
+
+    <a href='@Url.Action("AddDataDrivenRule", "Editor")'>
+        <input type='button' class="button" value='Add new data-driven rule' />
+    </a>
+   
+</body>
+</html>
