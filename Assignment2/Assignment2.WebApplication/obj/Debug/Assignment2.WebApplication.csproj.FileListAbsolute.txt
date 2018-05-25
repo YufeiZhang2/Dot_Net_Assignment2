@@ -639,3 +639,5 @@ C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\DatabaseTest.m
 C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\DatabaseTest_log.ldf
 C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\Database.mdf
 C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\Database_log.ldf
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\SmallDbForQuestionHistory\History.mdf
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\SmallDbForQuestionHistory\History_log.ldf

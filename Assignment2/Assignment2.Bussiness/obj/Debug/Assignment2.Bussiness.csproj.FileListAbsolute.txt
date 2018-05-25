@@ -78,3 +78,5 @@ C:\Users\zhangyufei\source\repos\Dot_Net_Assignment2\Assignment2\Assignment2.Bus
 C:\Users\zhangyufei\source\repos\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.csproj.CopyComplete
 C:\Users\zhangyufei\source\repos\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.dll
 C:\Users\zhangyufei\source\repos\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.pdb
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\SmallDbForQuestionHistory\History.mdf
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\SmallDbForQuestionHistory\History_log.ldf

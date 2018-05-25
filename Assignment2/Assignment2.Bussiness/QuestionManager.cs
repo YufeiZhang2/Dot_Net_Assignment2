@@ -1,4 +1,5 @@
 ﻿using Assignment2.Database;
+using Assignment2.Database.SmallDbForQuestionHistory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,33 @@ namespace Assignment2.Bussiness
 
     public class QuestionManager
     {
+        public List<Table> GetQuestionHistory()
+        {
+            using (HistoryContext context = new HistoryContext())
+            {
+                return context.Table.ToList();
+            }
+        }
+
+        public void CleanHistory()
+        {
+            using (HistoryContext context = new HistoryContext())
+            {
+                context.Table.RemoveRange(context.Table.ToList());
+                context.SaveChanges();
+            }
+        }
+
+        public void SaveAnswerToHistory(string question)
+        {
+            string answer = TryGetAnswer(question);
+            using (HistoryContext context = new HistoryContext())
+            {
+                context.Table.Add(new Table { Question = question, Answer = answer });
+                context.SaveChanges();
+
+            }
+        }
 
         public string TryGetAnswer(string question)
         {
