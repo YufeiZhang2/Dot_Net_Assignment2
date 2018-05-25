@@ -10,20 +10,21 @@ namespace Assignment2.Database
     public partial class WeatherInfo
     {
         [Key]
-        [StringLength(20)]
+        [StringLength(10)]
         public string Day { get; set; }
-
+        
         [Required]
+        [StringLength(20)]
         public string Weather { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(30)]
         public string Outfit { get; set; }
 
+        [Required]
         public int Temperature { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string LastMaintainerID { get; set; }
+        [StringLength(30)]
+        public string LastMaintainerId { get; set; }
     }
 }

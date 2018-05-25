@@ -64,16 +64,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBContext\AspNetRoles.cs" />
-    <Compile Include="DBContext\AspNetUserClaims.cs" />
-    <Compile Include="DBContext\AspNetUserLogins.cs" />
-    <Compile Include="DBContext\AspNetUsers.cs" />
-    <Compile Include="DBContext\Context.cs" />
-    <Compile Include="DBContext\C__MigrationHistory.cs" />
-    <Compile Include="DBContext\DataDrivenRules.cs" />
-    <Compile Include="DBContext\FixedRules.cs" />
+    <Compile Include="AspNetRoles.cs" />
+    <Compile Include="AspNetUserClaims.cs" />
+    <Compile Include="AspNetUserLogins.cs" />
+    <Compile Include="AspNetUsers.cs" />
+    <Compile Include="Context.cs" />
+    <Compile Include="C__MigrationHistory.cs" />
+    <Compile Include="DataDrivenRules.cs" />
+    <Compile Include="FixedRules.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DBContext\WeatherInfo.cs" />
+    <Compile Include="SmallDbForQuestionHistory\HistoryContext.cs" />
+    <Compile Include="SmallDbForQuestionHistory\Table.cs" />
+    <Compile Include="WeatherInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DatabaseTest.mdf">
@@ -89,6 +91,13 @@
     <Content Include="Database_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database.mdf</DependentUpon>
+    </Content>
+    <Content Include="SmallDbForQuestionHistory\History.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SmallDbForQuestionHistory\History_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>History.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>
