@@ -42,8 +42,8 @@
             @Html.TextBoxFor(m => m.Answer, new { @class = "form-control" })
         </div>
 
-        <button type="submit" class="button">Add</button>
-        <button type="submit" class="button">Cancel</button>
+        <button class="button">Add</button>
+        @Html.ActionLink("Go back", "Index")
     }
 </body>
 </html>

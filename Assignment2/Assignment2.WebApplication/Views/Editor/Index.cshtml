@@ -5,14 +5,151 @@
 @{
     ViewBag.Title = "Editor";
 }
+@using Assignment2.WebApplication.Controllers
+@using Assignment2.Database
+@model AllLists
+
 
 <h2>Rule Editor</h2>
+<p>Welcome! Editor.</p>
+<hr />
 
-<p>Here are the tables of rules</p>
-
+<p>Add new rules or see report:</p>
 @using (Html.BeginForm())
 {
     @Html.ActionLink("Add new fixed rule", "AddFixedRule")
-    <br/>
+    <br />
     @Html.ActionLink("Add data-driven rule", "AddDataDrivenRule")
+    <br />
+    @Html.ActionLink("See Report", "EditorReport")
 }
+
+<hr />
+
+<h3>Here are the tables of rules</h3>
+<hr />
+
+<h4>All rules that have not yet been approved or rejected.</h4>
+
+<p>Editable rules - Fixed Rules:</p>
+
+<table class="table">
+    <tr>
+        <th>Rule ID</th>
+        <th>Question</th>
+        <th>Answer</th>
+        <th>Status</th>
+        <th>Last Editor</th>
+    </tr>
+
+    @if (Model.UncheckedFixedRules.Count > 0)
+    {
+        foreach (var item in Model.UncheckedFixedRules)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Question</td>
+                <td>@item.Answer</td>
+                <td>@item.CurrentStatus</td>
+                <td>@item.LastEditorID</td>
+
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+        }
+    }
+</table>
+
+<p>Editable rules - Data-driven Rules:</p>
+
+<table class="table">
+    <tr>
+        <th>Rule ID</th>
+        <th>Question</th>
+        <th>QuestionColumn</th>
+        <th>Answer</th>
+        <th>AnswerColumn</th>
+        <th>Status</th>
+        <th>Last Editor</th>
+    </tr>
+
+    @if (Model.UncheckedDataDrivenRules.Count > 0)
+    {
+        foreach (var item in Model.UncheckedDataDrivenRules)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Question</td>
+                <td>@item.QuestionColumn</td>
+                <td>@item.Answer</td>
+                <td>@item.AnswerColumn</td>
+                <td>@item.CurrentStatus</td>
+                <td>@item.LastEditorID</td>
+
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+        }
+    }
+</table>
+
+<hr />
+<h4>All rules that have been rejected. You cannot edit anymore.</h4>
+
+
+<p>Rejected rules - Fixed Rules:</p>
+
+<table class="table">
+    <tr>
+        <th>Rule ID</th>
+        <th>Question</th>
+        <th>Answer</th>
+        <th>Status</th>
+        <th>Last Editor</th>
+    </tr>
+
+    @if (Model.RejectedFixedRules.Count > 0)
+    {
+        foreach (var item in Model.RejectedFixedRules)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Question</td>
+                <td>@item.Answer</td>
+                <td>@item.CurrentStatus</td>
+                <td>@item.LastEditorID</td>
+            </tr>
+        }
+    }
+</table>
+
+<p>Rejected rules - Data-driven Rules:</p>
+
+<table class="table">
+    <tr>
+        <th>Rule ID</th>
+        <th>Question</th>
+        <th>QuestionColumn</th>
+        <th>Answer</th>
+        <th>AnswerColumn</th>
+        <th>Status</th>
+        <th>Last Editor</th>
+    </tr>
+
+    @if (Model.RejectedDataDrivenRules.Count > 0)
+    {
+        foreach (var item in Model.RejectedDataDrivenRules)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Question</td>
+                <td>@item.QuestionColumn</td>
+                <td>@item.Answer</td>
+                <td>@item.AnswerColumn</td>
+                <td>@item.CurrentStatus</td>
+                <td>@item.LastEditorID</td>
+            </tr>
+        }
+    }
+</table>
+

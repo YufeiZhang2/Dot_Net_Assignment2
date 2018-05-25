@@ -22,7 +22,6 @@ namespace Assignment2.Database
         public string Outfit { get; set; }
 
         [Required]
-        [StringLength(2)]
         public int Temperature { get; set; }
 
         [StringLength(30)]

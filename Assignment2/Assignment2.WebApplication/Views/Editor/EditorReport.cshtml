@@ -10,3 +10,75 @@
 <h2>Editor Report</h2>
 
 <p>This is the report for editors</p>
+<p>Your rules that have been approved:</p>
+
+@Html.ActionLink("Go back", "Index")
+
+
+<p>Fixed Rules:</p>
+
+<table class="table">
+    <tr>
+        <th>Rule ID</th>
+        <th>Question</th>
+        <th>Answer</th>
+        <th>Status</th>
+        <th>Last Editor</th>
+    </tr>
+
+    @if (Model.ApprovedFixedRules.Count > 0)
+    {
+        foreach (var item in Model.ApprovedFixedRules)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Question</td>
+                <td>@item.Answer</td>
+                <td>@item.CurrentStatus</td>
+                <td>@item.LastEditorID</td>
+            </tr>
+        }
+    }
+</table>
+
+<p>Data-driven Rules:</p>
+
+<table class="table">
+    <tr>
+        <th>Rule ID</th>
+        <th>Question</th>
+        <th>QuestionColumn</th>
+        <th>Answer</th>
+        <th>AnswerColumn</th>
+        <th>Status</th>
+        <th>Last Editor</th>
+    </tr>
+
+    @if (Model.ApprovedDataDrivenRules.Count > 0)
+    {
+        foreach (var item in Model.ApprovedDataDrivenRules)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Question</td>
+                <td>@item.QuestionColumn</td>
+                <td>@item.Answer</td>
+                <td>@item.AnswerColumn</td>
+                <td>@item.CurrentStatus</td>
+                <td>@item.LastEditorID</td>
+            </tr>
+        }
+    }
+</table>
+
+
+
+<h3>Statistics:</h3>
+
+<p>Total count of approved rules that you are responsible for: 0</p>
+
+<p>Total count of rejected rules that you are responsible for: 0</p>
+
+<p>Percentage success rate: 0%</p>
+
+
