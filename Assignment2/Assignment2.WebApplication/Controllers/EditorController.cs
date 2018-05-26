@@ -17,7 +17,11 @@ namespace Assignment2.WebApplication.Controllers
         public List<DataDrivenRules> RejectedDataDrivenRules;
         public List<FixedRules> UncheckedFixedRules;
         public List<DataDrivenRules> UncheckedDataDrivenRules;
+        public int RejectedRulesCount { get; set; }
+        public int ApprovedRulesCount { get; set; }
+        public string SuccessRate { get; set; }
     }
+
 
     public class EditorController : Controller
     {
@@ -42,21 +46,40 @@ namespace Assignment2.WebApplication.Controllers
             return View();
         }
 
-        public ActionResult AddFixedRule()
+        public ActionResult UpdateDataDrivenRule()
         {
             return View();
         }
 
 
+        public ActionResult AddFixedRule()
+        {
+            return View();
+        }
 
+        public ActionResult UpdateFixedRule()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult Add()
+        {
+
+            return RedirectToAction("Index");
+        }
+        
 
 
         public ActionResult EditorReport()
         {
             AllLists allLists = new AllLists();
-
-            allLists.ApprovedDataDrivenRules = rulesEditor.GetDataDrivenRulesByStatus("Approved");
-            allLists.ApprovedFixedRules = rulesEditor.GetFixedRulesByStatus("Approved");
+            allLists.ApprovedDataDrivenRules = rulesEditor.GetYourDataDrivenRulesByStatus("Approved", User.Identity.Name);
+            allLists.ApprovedFixedRules = rulesEditor.GetYourFixedRulesByStatus("Approved", User.Identity.Name);
+            allLists.RejectedRulesCount = rulesEditor.CountRejectedRules(User.Identity.Name);
+            allLists.ApprovedRulesCount = rulesEditor.CountApprovedRules(User.Identity.Name);
+            allLists.SuccessRate = String.Format("{0:P}", rulesEditor.SuccessRate(User.Identity.Name));
 
             return View(allLists);
         }
