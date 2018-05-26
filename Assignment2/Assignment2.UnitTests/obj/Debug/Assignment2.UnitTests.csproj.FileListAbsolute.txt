@@ -106,3 +106,5 @@ C:\Users\cliffys\Documents\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests
 C:\Users\cliffys\Documents\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\obj\Debug\Assignment2.UnitTests.csproj.CopyComplete
 C:\Users\cliffys\Documents\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\obj\Debug\Assignment2.UnitTests.dll
 C:\Users\cliffys\Documents\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\obj\Debug\Assignment2.UnitTests.pdb
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\bin\Debug\SmallDbForQuestionHistory\History.mdf
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\bin\Debug\SmallDbForQuestionHistory\History_log.ldf
