@@ -6,6 +6,12 @@
 @{
     ViewBag.Title = "Approver - Report for rules";
 }
+
+@using System.Web.UI.WebControls
+@using Assignment2.WebApplication.Controllers
+@using Assignment2.Database
+@model AllRuleList
+
 <br />
 <a href='@Url.Action("index", "Approver")'>
     Back
@@ -24,13 +30,19 @@
 
     </tr>
 
-    <tr>
-        <td>01</td>
-        <td>How are you?</td>
-        <td>Great!</td>
-        <td>Approved</td>
-        <td>yufei.z222@gmail.com</td>
-    </tr>
+    @if (Model.ApprovedFixedRules.Count > 0)
+    {
+        foreach (var item in Model.ApprovedFixedRules)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Question</td>
+                <td>@item.Answer</td>
+                <td>@item.CurrentStatus</td>
+                <td>@item.LastEditorID</td>
+            </tr>
+        }
+    }
 
 </table>
 <br />
@@ -47,20 +59,26 @@
         <th>Last Editor ID</th>
     </tr>
 
-    <tr>
-        <td>03</td>
-        <td>Invalid Q *</td>
-        <td>Day</td>
-        <td>Invalid A *</td>
-        <td>Weather</td>
-        <td>Approved</td>
-        <td>zhouamym@gmail.com</td>
-    </tr>
+    @if (Model.ApprovedDataDrivenRules.Count > 0)
+    {
+        foreach (var item in Model.ApprovedDataDrivenRules)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Question</td>
+                <td>@item.QuestionColumn</td>
+                <td>@item.Answer</td>
+                <td>@item.AnswerColumn</td>
+                <td>@item.CurrentStatus</td>
+                <td>@item.LastEditorID</td>
+            </tr>
+        }
+    }
 
 </table>
 <br />
-<h3><strong>Total count of approved rules: 13</strong></h3>
+<h3><strong>Total count of approved rules: @Model.totalApprovedRules</strong></h3>
 <br />
-<h3><strong>Total count of rejected rules: 7</strong></h3>
+<h3><strong>Total count of rejected rules: @Model.totalRejectedRules</strong></h3>
 <br />
-<h3><strong>Success rate: 65%</strong></h3>
+<h3><strong>Success rate: @Model.successRate%</strong></h3>
