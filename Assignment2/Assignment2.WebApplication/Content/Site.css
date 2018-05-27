@@ -81,7 +81,7 @@ th {
 }
 #history {
     background-color: lightgray;
-    overflow: auto;
+    overflow-y: scroll;
     height: 300px;
 }
 #dialog {

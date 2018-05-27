@@ -7,6 +7,7 @@
 @model NewModel
 
 
+
 <div class="jumbotron">
     <h1>WEARther Forecast</h1>
     <p class="lead">We can provide you with information about the weather and recommendation of what to wear within a week.</p>
@@ -25,7 +26,7 @@
 
                     if (item.Answer == null || item.Answer == "")
                     {
-                        <li class="answer"><p>Sorry, I don't know the answer to your question.</p></li>
+                        <li class="answer"><p>Sorry, I don't know the answer to your question. <br />But you can say something else to me!</p></li>
                     }
                     else
                     {
@@ -46,3 +47,12 @@
     </div>
 </div>
 
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var chat = document.getElementById("history");
+        chat.scrollTop = chat.scrollHeight;
+    });
+
+</script>
