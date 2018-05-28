@@ -7,28 +7,30 @@
     ViewBag.Title = "Approver";
 }
 
+@using Assignment2.WebApplication.Controllers
+@using Assignment2.Database
+@model AllRuleList
+
 <style>
-
-
 </style>
 <p><h2><strong>Welcome! Approver.</strong></h2></p>
-<br/>
+<br />
 <a href='@Url.Action("ApproverReportForRule", "Approver")'>
     Go to report
 </a>
-<br/>
+<br />
 <br />
 <a href='@Url.Action("ApproverReportForEditor", "Approver")'>
     Go to report for editor
 </a>
 <br />
 <p><h2><strong>The Unchecked Rules:</strong></h2></p>
-<br/>
-<h3 ><strong>Fixed Rules:</strong></h3>
+<br />
+<h3><strong>Fixed Rules:</strong></h3>
 <table class="table">
     <tr>
         <th>ID</th>
-        <th>Question</th>we
+        <th>Question</th>
         <th>Answer</th>
         <th>Current Status</th>
         <th>Last Editor ID</th>
@@ -36,19 +38,26 @@
         <th>Reject</th>
     </tr>
 
-    <tr>
-        <td>01</td>
-        <td>How are you?</td>
-        <td>Great!</td>
-        <td>Unchecked</td>
-        <td>yufei.z222@gmail.com</td>
-        <td><button>approve</button></td>
-        <td><button>reject</button></td>
-    </tr>
+    @if (Model.UncheckedFixedRules.Count > 0)
+    {
+        foreach (var item in Model.UncheckedFixedRules)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Question</td>
+                <td>@item.Answer</td>
+                <td>@item.CurrentStatus</td>
+                <td>@item.LastEditorID</td>
+
+                <td>@Html.ActionLink("Approve", "FixedRulesApproved",new{id = @item.Id})</td>
+                <td>@Html.ActionLink("Reject", "FixedRulesRejected", new { id = @item.Id })</td>
+            </tr>
+        }
+    }
 
 </table>
-<br/>
-<br/>
+<br />
+<br />
 
 <h3><strong>Data-Driven Rules:</strong></h3>
 <table class="table">
@@ -64,17 +73,22 @@
         <th>Reject</th>
     </tr>
 
-    <tr>
-        <td>03</td>
-        <td>Invalid Q *</td>
-        <td>Day</td>
-        <td>Invalid A *</td>
-        <td>Weather</td>
-        <td>Unchecked</td>
-        <td>zhouamym@gmail.com</td>
-        <td><button>approve</button></td>
-        <td><button>reject</button></td>
-    </tr>
+    @if (Model.UncheckedDataDrivenRules.Count > 0)
+    {
+        foreach (var item in Model.UncheckedDataDrivenRules)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Question</td>
+                <td>@item.Answer</td>
+                <td>@item.CurrentStatus</td>
+                <td>@item.LastEditorID</td>
+
+                <td>@Html.ActionLink("Approve", "DataDrivenRulesApproved",new{id = @item.Id})</td>
+                <td>@Html.ActionLink("Reject", "DataDrivenRulesRejected", new { id = @item.Id })</td>
+            </tr>
+        }
+    }
 
 </table>
 

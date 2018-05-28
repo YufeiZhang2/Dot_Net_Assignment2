@@ -8,12 +8,15 @@
 }
 <style>
 
-    u { 
+    u {
         text-decoration: underline;
     }
-
-     
 </style>
+
+@using Assignment2.WebApplication.Controllers
+@using Assignment2.Database
+@model AllRuleList
+
 
 <br />
 <a href='@Url.Action("index", "Approver")'>
@@ -26,23 +29,23 @@
 <div id="editorReport">
 
     <br />
-    <h3><u>Total count of approved rules for Zhou Amy: 6</u> </h3>
+    <h3><u>Total count of approved rules for Zhou Amy: @Model.totalApprovedRulesAmy</u> </h3>
     <br />
-    <h3><u>Total count of rejected rules for the Zhou Amy: 4</u></h3>
+    <h3><u>Total count of rejected rules for the Zhou Amy: @Model.totalRejectedRulesAmy</u></h3>
     <br />
-    <h3><u>Total count of unchecked rules for Zhou Amy: 1</u> </h3>
+    <h3><u>Total count of unchecked rules for Zhou Amy: @Model.totalUncheckedRulesAmy</u> </h3>
     <br />
-    <h3><u>The success rate for Zhou Amy: 60%</u> </h3>
+    <h3><u>The success rate for Zhou Amy: @Model.successRateAmy%</u> </h3>
     <br />
-    <h3><u>Total count of approved rules for Crys Bui: 7</u> </h3>
+    <h3><u>Total count of approved rules for Crys Bui: @Model.totalApprovedRulesCrys</u> </h3>
     <br />
-    <h3><u>Total count of rejected rules for the Crys Bui: 3</u> </h3>
+    <h3><u>Total count of rejected rules for the Crys Bui: @Model.totalRejectedRulesCrys</u> </h3>
     <br />
-    <h3><u>Total count of unchecked rules for Crys Bui: 0</u> </h3>
+    <h3><u>Total count of unchecked rules for Crys Bui: @Model.totalUncheckedRulesCrys</u> </h3>
     <br />
-    <h3><u>The success rate for Crys Bui: 70 %</u> </h3>
+    <h3><u>The success rate for Crys Bui: @Model.successRateCrys%</u> </h3>
     <br />
-    <h3><u>The average success rate: 65%</u> </h3>
+    <h3><u>The average success rate: @Model.averageSuccessRate%</u> </h3>
     <br />
 
 </div>
