@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Maintainer.cs" />
     <Compile Include="QuestionManagerHelper.cs" />
     <Compile Include="RulesEditor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
