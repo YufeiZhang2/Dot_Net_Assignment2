@@ -15,8 +15,7 @@ namespace Assignment2.WebApplication.Controllers
 {
     public class MaintainerData
     {
-        public List<WeatherInfo> AllWeatherInfos;
-
+        public static List<WeatherInfo> WeatherInfos;
 
     }
 
@@ -25,15 +24,15 @@ namespace Assignment2.WebApplication.Controllers
         private Maintainer maintainer = new Maintainer();
 
         // GET: Maitainer
-        /*    public ActionResult Index()
+           public ActionResult Index()
             {
-                List<WeatherInfo> AllWeatherInfos = Maintainer.GetWeatherInfos().ToList();
+               
 
-                    return View();
+                    return View(Maintainer.GetWeatherInfos().ToList());
                 }
-    */
+    
 
-        public ActionResult Index()
+   /*     public ActionResult Index()
         {
             return View(
                 new MaintainerViewModel
@@ -42,6 +41,7 @@ namespace Assignment2.WebApplication.Controllers
                 }
             );
         }
+        */
         // GET: Maitainer/Save
         [HttpPost]
         [ValidateAntiForgeryToken]

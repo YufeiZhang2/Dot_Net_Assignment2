@@ -1,14 +1,24 @@
-﻿@model IEnumerable<Assignment2.WebApplication.Models.Maintainer>
-
+﻿
 @{
-    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@{
+    ViewBag.Title = "Maintainer";
+}
+@using Assignment2.WebApplication.Controllers
+@using Assignment2.Database
+@model List<WeatherInfo>
+
+
+<h2>Maintainer</h2>
+<p>Welcome! Maintainer.</p>
 
 <h2>Weather Info</h2>
 
 <table class="table">
     <tr>
+        <th>Day </th>
         <th>Weather </th>
         <th>Outfit</th>
         <th>Temperature</th>
@@ -16,27 +26,23 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
         <tr>
+            <td>@item.Day</td>
+            <td>@item.Weather</td>
+            <td>@item.Outfit</td>
+            <td>@item.Temperature</td>
+            <td>@item.LastMaintainerId</td>
             <td>
-                @Html.DisplayFor(modelItem => item.Weather)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Outfit)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Temperature)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastMaintainerId)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Day }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Day }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.Day })
+                @Html.ActionLink("Edit", "Edit", new { id = item.Day }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Day }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Day })
             </td>
         </tr>
     }
 
 </table>
-<button onclick="location.href = '@Url.Action("Save", "Maintainer")';" class="button">Add New</button>
+
+@Html.ActionLink("Add", "Save")
+<br />

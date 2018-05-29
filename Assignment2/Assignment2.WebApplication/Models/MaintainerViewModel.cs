@@ -4,11 +4,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using Assignment2.Database;
 
 namespace Assignment2.WebApplication.Models
 {
     public class MaintainerViewModel
     {
+        public List<WeatherInfo> WeatherInfos { get; set; }
+
         [Key]
         [Required]
         [StringLength(10)]

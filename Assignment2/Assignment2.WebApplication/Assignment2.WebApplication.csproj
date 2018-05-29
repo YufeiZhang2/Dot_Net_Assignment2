@@ -269,11 +269,8 @@
     <Content Include="Views\Approver\Index.cshtml" />
     <Content Include="Views\Approver\ApproverReportForRule.cshtml" />
     <Content Include="Views\Approver\ApproverReportForEditor.cshtml" />
-    <Content Include="Views\Maintainer\Save.cshtml" />
-    <Content Include="Views\Maintainer\Delete.cshtml" />
-    <Content Include="Views\Maintainer\Details.cshtml" />
-    <Content Include="Views\Maintainer\Edit.cshtml" />
     <Content Include="Views\Maintainer\Index.cshtml" />
+    <Content Include="Views\Maintainer\Save.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

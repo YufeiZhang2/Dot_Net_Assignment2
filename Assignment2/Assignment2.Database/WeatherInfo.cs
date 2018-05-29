@@ -12,7 +12,7 @@ namespace Assignment2.Database
         [Key]
         [StringLength(10)]
         public string Day { get; set; }
-        
+
         [Required]
         [StringLength(20)]
         public string Weather { get; set; }
