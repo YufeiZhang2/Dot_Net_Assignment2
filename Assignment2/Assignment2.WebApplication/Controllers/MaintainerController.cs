@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Data.Entity.Core.Mapping;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using Assignment2.Bussiness;
@@ -26,37 +27,21 @@ namespace Assignment2.WebApplication.Controllers
         // GET: Maitainer
            public ActionResult Index()
             {
+                // Set the LastMaintainerID as the current logged-in user
+                
+                return View(Maintainer.GetWeatherInfos().ToList());
                
-
-                    return View(Maintainer.GetWeatherInfos().ToList());
-                }
-    
-
-   /*     public ActionResult Index()
-        {
-            return View(
-                new MaintainerViewModel
-                {
-                    WeatherInfos = Maintainer.GetWeatherInfos().ToList()
-                }
-            );
         }
-        */
-        // GET: Maitainer/Save
+        
+           public ActionResult Save()
+            {
+            return View();
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(MaintainerViewModel model)
+        public ActionResult Save([Bind(Include = "Day,Weather,Outfit,Temperature")] WeatherInfo weatherInfo)
         {
-
-            Maintainer.AddWatherInfo
-            (new WeatherInfo
-                {
-                    Day = model.Day,
-                    Weather = model.Weather,
-                    Outfit = model.Outfit,
-                    Temperature = model.Temperature
-                }
-            );
+            Maintainer.AddWeatherInfo(weatherInfo);
             return RedirectToAction("Index");
         }
     }

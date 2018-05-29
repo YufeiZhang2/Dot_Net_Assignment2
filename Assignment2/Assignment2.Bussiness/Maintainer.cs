@@ -20,7 +20,7 @@ namespace Assignment2.Bussiness
         public static List<WeatherInfo> GetWeatherInfos()
         {
             using (Context context = new Context())
-            {
+            {      
                 return context.WeatherInfo.ToList();
             }
 
@@ -38,13 +38,13 @@ namespace Assignment2.Bussiness
             }
         }
 
-        public static void AddWatherInfo(WeatherInfo weatherInfo)
+        public static void AddWeatherInfo(WeatherInfo weatherInfo)
         {
             using (Context context = new Context())
             {
-
-                context.WeatherInfo.Add(weatherInfo);
-                context.SaveChanges();
+                
+                    context.WeatherInfo.Add(weatherInfo);
+                    context.SaveChanges();
 
             }
         }

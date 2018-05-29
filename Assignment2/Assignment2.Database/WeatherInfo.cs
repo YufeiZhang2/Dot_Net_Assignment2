@@ -10,6 +10,8 @@ namespace Assignment2.Database
     public partial class WeatherInfo
     {
         [Key]
+        public int Id { get; set; }
+
         [StringLength(10)]
         public string Day { get; set; }
 
