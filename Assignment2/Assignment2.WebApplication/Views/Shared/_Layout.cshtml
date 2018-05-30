@@ -24,9 +24,23 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Maintainer", "Index", "Maintainer")</li>
-                    <li>@Html.ActionLink("Editor", "Index", "Editor")</li>
-                    <li>@Html.ActionLink("Approver", "Index", "Approver")</li>
+
+                    @*Display navigation bar based on user's role*@
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("DataMaintainer"))
+                        {
+                            <li>@Html.ActionLink("Maintainer", "Index", "Maintainer")</li>
+                        }
+                        if (User.IsInRole("Editor"))
+                        {
+                            <li>@Html.ActionLink("Editor", "Index", "Editor")</li>
+                        }
+                        if (User.IsInRole("Approver"))
+                        {
+                            <li>@Html.ActionLink("Approver", "Index", "Approver")</li>
+                        }
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

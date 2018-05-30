@@ -647,3 +647,5 @@ C:\Users\cliffys\Documents\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplic
 C:\Users\cliffys\Documents\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\Database_log.ldf
 C:\Users\cliffys\Documents\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\SmallDbForQuestionHistory\History.mdf
 C:\Users\cliffys\Documents\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\SmallDbForQuestionHistory\History_log.ldf
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\SmallDbForQuestionHistory\History.mdf
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\SmallDbForQuestionHistory\History_log.ldf
