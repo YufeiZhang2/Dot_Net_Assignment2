@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Assignment2.Bussiness;
 using Assignment2.Database;
-
+using Assignment2.WebApplication.Models;
 
 namespace Assignment2.WebApplication.Controllers
 {
@@ -22,7 +22,7 @@ namespace Assignment2.WebApplication.Controllers
         public string SuccessRate { get; set; }
     }
 
-
+    [Authorize(Roles = RoleName.Editor)]
     public class EditorController : Controller
     {
         private RulesEditor rulesEditor = new RulesEditor();
@@ -40,6 +40,7 @@ namespace Assignment2.WebApplication.Controllers
 
             return View(allLists);
         }
+
 
         public ActionResult AddDataDrivenRule()
         {

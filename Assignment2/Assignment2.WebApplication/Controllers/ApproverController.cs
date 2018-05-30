@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Assignment2.Business;
 using Assignment2.Database;
-
+using Assignment2.WebApplication.Models;
 
 namespace Assignment2.WebApplication.Controllers
 {
@@ -32,6 +32,7 @@ namespace Assignment2.WebApplication.Controllers
         public double averageSuccessRate;
     }
 
+    [Authorize(Roles = RoleName.Approver)]
     public class ApproverController : Controller
     {
         RuleApprover rulesApprover = new RuleApprover();

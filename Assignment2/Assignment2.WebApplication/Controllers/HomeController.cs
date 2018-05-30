@@ -14,6 +14,7 @@ namespace Assignment2.WebApplication.Controllers
         public string NewQuestion { get; set; }
     }
 
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         QuestionManager manager = new QuestionManager();
@@ -37,23 +38,6 @@ namespace Assignment2.WebApplication.Controllers
             model.history = manager.GetQuestionHistory();
 
             return View(model);
-        }
-
-
-
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
         }
     }
 }

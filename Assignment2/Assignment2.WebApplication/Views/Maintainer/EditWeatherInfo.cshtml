@@ -1,0 +1,71 @@
+﻿
+@using Assignment2.Database
+@model WeatherInfo
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <h2>Matainer Edit Page</h2>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(w => w.Id)
+
+            <div class="form-group">
+                <> You want to edit </> 
+                <div class="col-md-10">
+                @Html.DisplayFor(w=> w.Day)
+                </div>
+                <div class="col-md-10">
+                    @Html.HiddenFor(w => w.Day)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(w => w.Weather, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(w => w.Weather, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(w => w.Weather, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(w => w.Outfit, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(w => w.Outfit, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(w => w.Outfit, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(w => w.Temperature, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(w => w.Temperature, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(w => w.Temperature, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.HiddenFor(w => w.LastMaintainerId)
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="button" />
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>
+<div>
+    <button onclick="location.href = '@Url.Action("Index", "Maintainer")';" class="button">Cancel</button>
+</div>
+

@@ -20,6 +20,7 @@ namespace Assignment2.WebApplication.Controllers
 
     }
 
+    [Authorize(Roles = RoleName.Maintainer)]
     public class MaintainerController : Controller
     {
         private Maintainer maintainer = new Maintainer();
@@ -27,9 +28,9 @@ namespace Assignment2.WebApplication.Controllers
         // GET: Maitainer
            public ActionResult Index()
             {
-                // Set the LastMaintainerID as the current logged-in user
-                
-                return View(Maintainer.GetWeatherInfos().ToList());
+            // Set the LastMaintainerID as the current logged-in user
+           
+            return View(Maintainer.GetWeatherInfos(User.Identity.Name).ToList());
                
         }
         
@@ -37,15 +38,74 @@ namespace Assignment2.WebApplication.Controllers
             {
             return View();
         }
+
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save([Bind(Include = "Day,Weather,Outfit,Temperature")] WeatherInfo weatherInfo)
+        public ActionResult Save( WeatherInfo weatherInfo)
         {
-            Maintainer.AddWeatherInfo(weatherInfo);
+            if (ModelState.IsValid)
+            {
+                Maintainer.AddWeatherInfo(weatherInfo);
+            }
+
+            return RedirectToAction("Index");
+        }
+        public ActionResult EditWeatherInfo(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var weatherInfo = maintainer.SearchById((int)id);
+            if (weatherInfo == null)
+            {
+                return HttpNotFound();
+            }
+            return View(weatherInfo);
+        }
+
+        //Bind to make sure that only the properties Day,Weather&outfit will be edited
+        [HttpPost]
+        
+        public ActionResult EditWeatherInfo( WeatherInfo weatherInfo)
+        {
+            maintainer.Update(weatherInfo);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult DeleteWeatherInfo(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var contact = maintainer.SearchById((int)id);
+            if (contact == null)
+            {
+                return HttpNotFound();
+            }
+            return View(contact);
+        }
+
+        // POST: PersonalContacts/Delete/5
+        // Delete a contact
+        [HttpPost, ActionName("DeleteWeatherInfo")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            var weatherInfo = maintainer.SearchById((int)id);
+            if (weatherInfo == null)
+            {
+                return HttpNotFound();
+            }
+            maintainer.Delete(weatherInfo);
             return RedirectToAction("Index");
         }
     }
 
-
-
 }
+
+
+
+
+

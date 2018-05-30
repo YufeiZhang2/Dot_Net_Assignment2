@@ -8,6 +8,10 @@ namespace Assignment2.WebApplication
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+
+            // Apply global filters for only authorized users
+            // Only allow unlogged-in user to access homepage => [AllowAnonymous] in HomeController
+            filters.Add(new AuthorizeAttribute());
         }
     }
 }

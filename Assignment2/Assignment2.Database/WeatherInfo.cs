@@ -24,6 +24,7 @@ namespace Assignment2.Database
         public string Outfit { get; set; }
 
         [Required]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Temperature must be numeric")]
         public int Temperature { get; set; }
 
         [StringLength(30)]
