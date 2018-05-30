@@ -1,0 +1,30 @@
+﻿
+@using Assignment2.Database
+@model WeatherInfo
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Weather Info</title>
+</head>
+<body>
+    <h1>Weather Info</h1>
+    <h2>Are you sure you want to delete this?</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(w => w.Id)
+        <table>
+            <tr><td>Day</td>
+                <td>@Model.Day</td></tr>
+            <tr><td>Weather</td>
+                <td>@Model.Weather</td></tr>
+            <tr><td>Outfit</td>
+                <td>@Model.Outfit</td></tr>
+            <tr><td>Temperature</td>
+                <td>@Model.Temperature</td></tr>
+        </table>
+        <input type="submit" value="Delete" class="button"/>
+        @Html.ActionLink("Cancel", "Index")
+    }
+</body>
+</html>

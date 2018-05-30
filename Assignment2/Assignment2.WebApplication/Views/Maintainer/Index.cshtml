@@ -35,9 +35,8 @@
             <td>@item.Temperature</td>
             <td>@item.LastMaintainerId</td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Day }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Day }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Day })
+                @Html.ActionLink("Edit", "EditWeatherInfo", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeleteWeatherInfo", new { id = item.Id })
             </td>
         </tr>
     }
