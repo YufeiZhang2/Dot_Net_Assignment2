@@ -6,7 +6,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
 
-    <h2>Matainer Edit Page</h2>
+    <h2>Maintainer - Edit Page</h2>
 </head>
 <body>
     @using (Html.BeginForm())
@@ -58,14 +58,12 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="button" />
+                    <input type="submit" value="Save" class="btn btn-default" />
+                    @Html.ActionLink("Cancel", "Index")
                 </div>
             </div>
         </div>
     }
 </body>
 </html>
-<div>
-    <button onclick="location.href = '@Url.Action("Index", "Maintainer")';" class="button">Cancel</button>
-</div>
 
