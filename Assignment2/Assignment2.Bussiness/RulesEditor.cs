@@ -50,7 +50,7 @@ namespace Assignment2.Bussiness
             }
         }
 
-        public DataDrivenRules SearchById(int id)
+        public DataDrivenRules SearchDataDrivenRuleById(int id)
         {
             using (Context context = new Context())
             {
@@ -105,13 +105,12 @@ namespace Assignment2.Bussiness
 
 
 
-
-        public void AddFixedRule()
+        public void AddFixedRule(FixedRules rule)
         {
 
             using (Context context = new Context())
             {
-
+                context.FixedRules.Add(rule);
                 context.SaveChanges();
             }
         }
@@ -127,42 +126,54 @@ namespace Assignment2.Bussiness
         }
 
 
-        public void UpdateFixedRule()
+        public void UpdateFixedRule(FixedRules rule)
         {
 
             using (Context context = new Context())
             {
+                var updatedRule = context.FixedRules.Find(rule.Id);
+                if (updatedRule != null)
+                {
+                    context.Entry(updatedRule).CurrentValues.SetValues(rule);
+                    context.SaveChanges();
+                }
+            }
 
+        }
+
+
+        public void UpdateDataDrivenRule(DataDrivenRules rule)
+        {
+            using (Context context = new Context())
+            {
+                var updatedRule = context.DataDrivenRules.Find(rule.Id);
+                if (updatedRule != null)
+                {
+                    context.Entry(updatedRule).CurrentValues.SetValues(rule);
+                    context.SaveChanges();
+                }
+                
+            }
+        }
+
+        public void DeleteFixedRule(FixedRules rule)
+        {
+
+            using (Context context = new Context())
+            {
+                var deletedRule = context.FixedRules.Find(rule.Id);
+                context.FixedRules.Remove(deletedRule);
                 context.SaveChanges();
             }
 
         }
 
-        public void UpdateDataDrivenRule()
+        public void DeleteDataDrivenRule(DataDrivenRules rule)
         {
             using (Context context = new Context())
             {
-
-                context.SaveChanges();
-            }
-        }
-
-        public void DeleteFixedRule()
-        {
-
-            using (Context context = new Context())
-            {
-
-                context.SaveChanges();
-            }
-
-        }
-
-        public void DeleteDataDrivenRule()
-        {
-            using (Context context = new Context())
-            {
-
+                var deletedRule = context.DataDrivenRules.Find(rule.Id);
+                context.DataDrivenRules.Remove(deletedRule);
                 context.SaveChanges();
             }
         }

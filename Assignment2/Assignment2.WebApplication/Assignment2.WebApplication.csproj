@@ -273,6 +273,8 @@
     <Content Include="Views\Maintainer\Save.cshtml" />
     <Content Include="Views\Maintainer\EditWeatherInfo.cshtml" />
     <Content Include="Views\Maintainer\DeleteWeatherInfo.cshtml" />
+    <Content Include="Views\Editor\UpdateDataDrivenRule.cshtml" />
+    <Content Include="Views\Editor\DeleteDataDrivenRule.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

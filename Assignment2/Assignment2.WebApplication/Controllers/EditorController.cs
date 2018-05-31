@@ -63,11 +63,67 @@ namespace Assignment2.WebApplication.Controllers
             return View();
         }
 
+        public ActionResult UpdateDataDrivenRule(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var rule = rulesEditor.SearchDataDrivenRuleById((int)id);
+            if (rule == null)
+            {
+                return HttpNotFound();
+            }
+            return View(rule);
+        }
+
+
+        [HttpPost]
+        public ActionResult UpdateDataDrivenRule(DataDrivenRules rule)
+        {
+            rule.LastEditorID = User.Identity.Name;
+            rulesEditor.UpdateDataDrivenRule(rule);
+            return RedirectToAction("Index");
+        }
+
         public ActionResult UpdateFixedRule()
         {
             return View();
         }
         
+
+        public ActionResult DeleteDataDrivenRule(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var rule = rulesEditor.SearchDataDrivenRuleById((int)id);
+            if (rule == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(rule);
+        }
+
+
+        [HttpPost, ActionName("DeleteDataDrivenRule")]
+        public ActionResult DeleteDataDrivenRuleConfirmed(int id)
+        {
+            var rule = rulesEditor.SearchDataDrivenRuleById((int)id);
+            if (rule == null)
+            {
+                return HttpNotFound();
+            }
+            rulesEditor.DeleteDataDrivenRule(rule);
+
+
+            
+            return RedirectToAction("Index");
+        }
 
 
         public ActionResult EditorReport()
