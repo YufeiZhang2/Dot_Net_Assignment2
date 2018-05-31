@@ -26,26 +26,27 @@ namespace Assignment2.WebApplication.Controllers
         private Maintainer maintainer = new Maintainer();
 
         // GET: Maitainer
-           public ActionResult Index()
-            {
+        public ActionResult Index()
+        {
             // Set the LastMaintainerID as the current logged-in user
-           
+
             return View(Maintainer.GetWeatherInfos(User.Identity.Name).ToList());
-               
+
         }
-        
-           public ActionResult Save()
-            {
+
+        public ActionResult Save()
+        {
             return View();
         }
 
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save( WeatherInfo weatherInfo)
+        public ActionResult Save(WeatherInfo weatherInfo)
         {
             if (ModelState.IsValid)
             {
+                weatherInfo.LastMaintainerId = User.Identity.Name;
                 Maintainer.AddWeatherInfo(weatherInfo);
             }
 
@@ -67,9 +68,10 @@ namespace Assignment2.WebApplication.Controllers
 
         //Bind to make sure that only the properties Day,Weather&outfit will be edited
         [HttpPost]
-        
-        public ActionResult EditWeatherInfo( WeatherInfo weatherInfo)
+
+        public ActionResult EditWeatherInfo(WeatherInfo weatherInfo)
         {
+            weatherInfo.LastMaintainerId = User.Identity.Name;
             maintainer.Update(weatherInfo);
             return RedirectToAction("Index");
         }

@@ -50,6 +50,16 @@ namespace Assignment2.Bussiness
             }
         }
 
+        public DataDrivenRules SearchById(int id)
+        {
+            using (Context context = new Context())
+            {
+                return (from c in context.DataDrivenRules
+                        where c.Id == id
+                        select c).FirstOrDefault();
+            }
+        }
+
         /// <summary>
         /// Count the approved rules of one editor. 
         /// </summary>
@@ -107,6 +117,16 @@ namespace Assignment2.Bussiness
         }
 
 
+        public void AddDataDrivenRule(DataDrivenRules rule)
+        {
+            using (Context context = new Context())
+            { 
+                context.DataDrivenRules.Add(rule);
+                context.SaveChanges();
+            }
+        }
+
+
         public void UpdateFixedRule()
         {
 
@@ -118,6 +138,15 @@ namespace Assignment2.Bussiness
 
         }
 
+        public void UpdateDataDrivenRule()
+        {
+            using (Context context = new Context())
+            {
+
+                context.SaveChanges();
+            }
+        }
+
         public void DeleteFixedRule()
         {
 
@@ -127,6 +156,15 @@ namespace Assignment2.Bussiness
                 context.SaveChanges();
             }
 
+        }
+
+        public void DeleteDataDrivenRule()
+        {
+            using (Context context = new Context())
+            {
+
+                context.SaveChanges();
+            }
         }
 
 

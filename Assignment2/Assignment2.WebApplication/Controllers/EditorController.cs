@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Assignment2.Bussiness;
@@ -41,15 +42,19 @@ namespace Assignment2.WebApplication.Controllers
             return View(allLists);
         }
 
-
         public ActionResult AddDataDrivenRule()
         {
             return View();
         }
 
-        public ActionResult UpdateDataDrivenRule()
+        [HttpPost]
+        public ActionResult AddDataDrivenRule(DataDrivenRules rule)
         {
-            return View();
+            rule.CurrentStatus = "Unchecked";
+            rule.LastEditorID = User.Identity.Name;
+            rulesEditor.AddDataDrivenRule(rule);
+
+            return RedirectToAction("Index");
         }
 
 
@@ -61,14 +66,6 @@ namespace Assignment2.WebApplication.Controllers
         public ActionResult UpdateFixedRule()
         {
             return View();
-        }
-
-
-        [HttpPost]
-        public ActionResult Add()
-        {
-
-            return RedirectToAction("Index");
         }
         
 
