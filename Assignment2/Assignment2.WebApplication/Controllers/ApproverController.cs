@@ -1,46 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Assignment2.Business;
-using Assignment2.Database;
 using Assignment2.WebApplication.Models;
 
 namespace Assignment2.WebApplication.Controllers
-{
-    public class AllRuleList
-    {
-        public List<FixedRules> ApprovedFixedRules;
-        public List<DataDrivenRules> ApprovedDataDrivenRules;
-        public List<FixedRules> UncheckedFixedRules;
-        public List<DataDrivenRules> UncheckedDataDrivenRules;
-        public int totalApprovedRules;
-        public int totalRejectedRules;
-        public double successRate;
+{ 
+    /// <summary>
+    /// The ApproverController controls the views at present layer by manipulating the data model AllRuleListForApprover at the model layer. 
+    /// </summary>
 
-        public int totalApprovedRulesAmy;
-        public int totalRejectedRulesAmy;
-        public int totalUncheckedRulesAmy;
-        public double successRateAmy;
-
-        public int totalApprovedRulesCrys;
-        public int totalRejectedRulesCrys;
-        public int totalUncheckedRulesCrys;
-        public double successRateCrys;
-
-        public double averageSuccessRate;
-    }
-
+    //Authorising the role of approver.
     [Authorize(Roles = RoleName.Approver)]
     public class ApproverController : Controller
     {
         RuleApprover rulesApprover = new RuleApprover();
 
-        // GET: Approver
+        //Control the views of approver main page.
         public ActionResult Index()
         {
-            AllRuleList allRuleList = new AllRuleList();
+            AllRuleListForApprover allRuleList = new AllRuleListForApprover();
 
             allRuleList.UncheckedDataDrivenRules = rulesApprover.GetDataDrivenRulesByStatus("Unchecked");
 
@@ -49,54 +28,58 @@ namespace Assignment2.WebApplication.Controllers
 
             return View(allRuleList);
         }
-
+        
+        //Control the views of approver main page after the fixed rules are approved.
         public ActionResult FixedRulesApproved(int? id)
         {
             rulesApprover.ApproveFixedRule((int)id);
             return RedirectToAction("Index");
         }
 
+        //Control the views of approver main page after the data-driven rules are approved.
         public ActionResult DataDrivenRulesApproved(int? id)
         {
             rulesApprover.ApproveDataDrivenRule((int)id);
             return RedirectToAction("Index");
         }
 
+        //Control the views of approver main page after the fixed rules are rejected.
         public ActionResult FixedRulesRejected(int? id)
         {
             rulesApprover.RejectFixedRule((int)id);
             return RedirectToAction("Index");
         }
 
+        //Control the views of approver main page after the data-driven rules are rejected.
         public ActionResult DataDrivenRulesRejected(int? id)
         {
             rulesApprover.RejectDataDrivenRule((int)id);
             return RedirectToAction("Index");
         }
 
-
+        //Control the views of approver report;
         public ActionResult ApproverReportForRule()
         {
-            AllRuleList allRuleList = new AllRuleList();
+            AllRuleListForApprover allRuleList = new AllRuleListForApprover();
             allRuleList.ApprovedFixedRules = rulesApprover.GetFixedRulesByStatus("Approved");
             allRuleList.ApprovedDataDrivenRules = rulesApprover.GetDataDrivenRulesByStatus("Approved");
 
-            allRuleList.totalApprovedRules = rulesApprover.GetDataDrivenRulesByStatus("Approved").Count + rulesApprover.GetFixedRulesByStatus("Approved").Count;
-            allRuleList.totalRejectedRules = rulesApprover.GetFixedRulesByStatus("Rejected").Count + rulesApprover.GetDataDrivenRulesByStatus("Rejected").Count;
+            allRuleList.TotalApprovedRules = rulesApprover.GetDataDrivenRulesByStatus("Approved").Count + rulesApprover.GetFixedRulesByStatus("Approved").Count;
+            allRuleList.TotalRejectedRules = rulesApprover.GetFixedRulesByStatus("Rejected").Count + rulesApprover.GetDataDrivenRulesByStatus("Rejected").Count;
 
-            double result = ((double) allRuleList.totalApprovedRules / (allRuleList.totalApprovedRules +
-                                                                        allRuleList.totalRejectedRules)) * 100;
+            double result = ((double) allRuleList.TotalApprovedRules / (allRuleList.TotalApprovedRules +
+                                                                        allRuleList.TotalRejectedRules)) * 100;
 
-            allRuleList.successRate = Math.Round(result, 2);
+            allRuleList.SuccessRate = Math.Round(result, 2);
 
             return View(allRuleList);
         }
 
-
+        //Control the views of approver report for editors.
         public ActionResult ApproverReportForEditor()
         {
 
-            AllRuleList allRuleList = new AllRuleList();
+            AllRuleListForApprover allRuleList = new AllRuleListForApprover();
             var totalApprovedRulesAmy = rulesApprover.GetFixedRulesByStatusForEditor("Approved", "zhouamym@gmail.com").Count 
                           + rulesApprover.GetDataDataDrivenRulesByStatusForEditor("Approved", "zhouamym@gmail.com").Count;
 
@@ -108,10 +91,10 @@ namespace Assignment2.WebApplication.Controllers
 
             var resultAmy = ((double) totalApprovedRulesAmy / (totalApprovedRulesAmy + totalRejectedRulesAmy)) * 100;
 
-            allRuleList.totalApprovedRulesAmy = totalApprovedRulesAmy;
-            allRuleList.totalRejectedRulesAmy = totalRejectedRulesAmy;
-            allRuleList.totalUncheckedRulesAmy = totalUncheckedRulesAmy;
-            allRuleList.successRateAmy = Math.Round(resultAmy,2);
+            allRuleList.TotalApprovedRulesAmy = totalApprovedRulesAmy;
+            allRuleList.TotalRejectedRulesAmy = totalRejectedRulesAmy;
+            allRuleList.TotalUncheckedRulesAmy = totalUncheckedRulesAmy;
+            allRuleList.SuccessRateAmy = Math.Round(resultAmy,2);
 
             var totalApprovedRulesCrys = rulesApprover.GetFixedRulesByStatusForEditor("Approved", "crysbui.depon@gmail.com").Count
                                         + rulesApprover.GetDataDataDrivenRulesByStatusForEditor("Approved", "crysbui.depon@gmail.com").Count;
@@ -124,17 +107,17 @@ namespace Assignment2.WebApplication.Controllers
 
             var resultCrys = ((double)totalApprovedRulesCrys / (totalApprovedRulesCrys + totalRejectedRulesCrys)) * 100;
 
-            allRuleList.totalApprovedRulesCrys = totalApprovedRulesCrys;
-            allRuleList.totalRejectedRulesCrys = totalRejectedRulesCrys;
-            allRuleList.totalUncheckedRulesCrys = totalUncheckedRulesCrys;
-            allRuleList.successRateCrys = Math.Round(resultCrys, 2);
+            allRuleList.TotalApprovedRulesCrys = totalApprovedRulesCrys;
+            allRuleList.TotalRejectedRulesCrys = totalRejectedRulesCrys;
+            allRuleList.TotalUncheckedRulesCrys = totalUncheckedRulesCrys;
+            allRuleList.SuccessRateCrys = Math.Round(resultCrys, 2);
 
 
             var averageResult = ((double) (totalApprovedRulesAmy + totalApprovedRulesCrys) /
                                  (totalApprovedRulesAmy + totalApprovedRulesCrys + totalRejectedRulesAmy +
                                   totalRejectedRulesCrys)) * 100;
 
-            allRuleList.averageSuccessRate = Math.Round(averageResult,2);
+            allRuleList.AverageSuccessRate = Math.Round(averageResult,2);
 
             return View(allRuleList);
         }
