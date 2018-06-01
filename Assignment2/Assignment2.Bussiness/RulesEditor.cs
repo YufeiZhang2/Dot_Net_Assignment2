@@ -117,7 +117,6 @@ namespace Assignment2.Bussiness
 
         public void AddFixedRule(FixedRules rule)
         {
-
             using (Context context = new Context())
             {
                 context.FixedRules.Add(rule);

@@ -16,11 +16,9 @@ namespace Assignment2.Database
         [Required]
         public string Answer { get; set; }
 
-        [Required]
         [StringLength(10)]
         public string CurrentStatus { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string LastEditorID { get; set; }
     }

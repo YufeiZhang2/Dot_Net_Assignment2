@@ -47,14 +47,22 @@ namespace Assignment2.WebApplication.Controllers
             return View();
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult AddDataDrivenRule(DataDrivenRules rule)
+        public ActionResult AddDataDrivenRule([Bind(Include = "Question,QuestionColumn,Answer,AnswerColumn")] DataDrivenRules rule)
         {
-            rule.CurrentStatus = "Unchecked";
-            rule.LastEditorID = User.Identity.Name;
-            rulesEditor.AddDataDrivenRule(rule);
-
-            return RedirectToAction("Index");
+ 
+            if (ModelState.IsValid)
+            {
+                rule.CurrentStatus = "Unchecked";
+                rule.LastEditorID = User.Identity.Name;
+                rulesEditor.AddDataDrivenRule(rule);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(rule);
+            }
         }
 
 
@@ -64,13 +72,21 @@ namespace Assignment2.WebApplication.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddFixedRule(FixedRules rule)
+        public ActionResult AddFixedRule([Bind(Include = "Question,Answer")] FixedRules rule)
         {
-            rule.CurrentStatus = "Unchecked";
-            rule.LastEditorID = User.Identity.Name;
-            rulesEditor.AddFixedRule(rule);
+            if (ModelState.IsValid)
+            {
+                rule.CurrentStatus = "Unchecked";
+                rule.LastEditorID = User.Identity.Name;
+                rulesEditor.AddFixedRule(rule);
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(rule);
+            }
+
         }
 
         public ActionResult UpdateDataDrivenRule(int? id)
@@ -92,9 +108,17 @@ namespace Assignment2.WebApplication.Controllers
         [HttpPost]
         public ActionResult UpdateDataDrivenRule(DataDrivenRules rule)
         {
-            rule.LastEditorID = User.Identity.Name;
-            rulesEditor.UpdateDataDrivenRule(rule);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                rule.LastEditorID = User.Identity.Name;
+                rulesEditor.UpdateDataDrivenRule(rule);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(rule);
+            }
+
         }
 
         public ActionResult UpdateFixedRule(int? id)
@@ -115,9 +139,17 @@ namespace Assignment2.WebApplication.Controllers
         [HttpPost]
         public ActionResult UpdateFixedRule(FixedRules rule)
         {
-            rule.LastEditorID = User.Identity.Name;
-            rulesEditor.UpdateFixedRule(rule);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                rule.LastEditorID = User.Identity.Name;
+                rulesEditor.UpdateFixedRule(rule);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(rule);
+            }
+
         }
 
 

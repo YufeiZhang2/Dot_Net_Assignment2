@@ -135,3 +135,13 @@ th {
 u {
     text-decoration: underline;
 }
+
+
+.field-validation-error {
+    color: red;
+    font-size: 12px;
+}
+
+.input-validation-error {
+    border: 1px solid red;
+}

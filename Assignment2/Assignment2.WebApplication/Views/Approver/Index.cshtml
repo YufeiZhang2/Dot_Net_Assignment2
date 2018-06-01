@@ -81,16 +81,18 @@
     {
         foreach (var item in Model.UncheckedDataDrivenRules)
         {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.Question</td>
-                <td>@item.Answer</td>
-                <td>@item.CurrentStatus</td>
-                <td>@item.LastEditorID</td>
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.Question</td>
+        <td>@item.QuestionColumn</td>
+        <td>@item.Answer</td>
+        <td>@item.AnswerColumn</td>
+        <td>@item.CurrentStatus</td>
+        <td>@item.LastEditorID</td>
 
-                <td>@Html.ActionLink("Approve", "DataDrivenRulesApproved",new{id = @item.Id})</td>
-                <td>@Html.ActionLink("Reject", "DataDrivenRulesRejected", new { id = @item.Id })</td>
-            </tr>
+        <td>@Html.ActionLink("Approve", "DataDrivenRulesApproved", new { id = @item.Id })</td>
+        <td>@Html.ActionLink("Reject", "DataDrivenRulesRejected", new { id = @item.Id })</td>
+    </tr>
         }
     }
 
