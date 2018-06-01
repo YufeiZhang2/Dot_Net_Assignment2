@@ -10,13 +10,16 @@
 @using System.Web.UI.WebControls
 @using Assignment2.WebApplication.Controllers
 @using Assignment2.Database
-@model AllRuleList
-
+@model AllRuleListForApprover
 <br />
+
+<!--The button for navigating to the approver main page. -->
 <a href='@Url.Action("index", "Approver")'>
     Back
 </a>
 <br />
+
+<!--The approver report.-->
 <p><h2><strong>Approved Rules:</strong></h2></p>
 <br />
 <h3><strong>Fixed Approved Rules:</strong></h3>

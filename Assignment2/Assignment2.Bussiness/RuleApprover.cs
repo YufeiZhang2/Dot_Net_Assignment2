@@ -8,7 +8,7 @@ namespace Assignment2.Business
 {
     /// <summary>
     /// The function used to manage the rules, including approving and rejecting rules, showing a
-    /// list of rules and generating two approver reports.
+    /// list of rules by status and generating two approver reports.
     /// </summary>
     
     public class RuleApprover

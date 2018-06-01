@@ -1,45 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Assignment2.Business;
-using Assignment2.Database;
 using Assignment2.WebApplication.Models;
 
 namespace Assignment2.WebApplication.Controllers
-{
-    public class AllRuleList
-    {
-        public List<FixedRules> ApprovedFixedRules;
-        public List<DataDrivenRules> ApprovedDataDrivenRules;
-        public List<FixedRules> UncheckedFixedRules;
-        public List<DataDrivenRules> UncheckedDataDrivenRules;
-        public int TotalApprovedRules;
-        public int TotalRejectedRules;
-        public double SuccessRate;
+{ 
+    /// <summary>
+    /// The ApproverController controls the views at present layer by manipulating the data model AllRuleListForApprover at the model layer. 
+    /// </summary>
 
-        public int TotalApprovedRulesAmy;
-        public int TotalRejectedRulesAmy;
-        public int TotalUncheckedRulesAmy;
-        public double SuccessRateAmy;
-
-        public int TotalApprovedRulesCrys;
-        public int TotalRejectedRulesCrys;
-        public int TotalUncheckedRulesCrys;
-        public double SuccessRateCrys;
-
-        public double AverageSuccessRate;
-    }
-
+    //Authorising the role of approver.
     [Authorize(Roles = RoleName.Approver)]
     public class ApproverController : Controller
     {
         RuleApprover rulesApprover = new RuleApprover();
 
-        // GET: Approver
+        //Control the views of approver main page.
         public ActionResult Index()
         {
-            AllRuleList allRuleList = new AllRuleList();
+            AllRuleListForApprover allRuleList = new AllRuleListForApprover();
 
             allRuleList.UncheckedDataDrivenRules = rulesApprover.GetDataDrivenRulesByStatus("Unchecked");
 
@@ -48,35 +28,39 @@ namespace Assignment2.WebApplication.Controllers
 
             return View(allRuleList);
         }
-
+        
+        //Control the views of approver main page after the fixed rules are approved.
         public ActionResult FixedRulesApproved(int? id)
         {
             rulesApprover.ApproveFixedRule((int)id);
             return RedirectToAction("Index");
         }
 
+        //Control the views of approver main page after the data-driven rules are approved.
         public ActionResult DataDrivenRulesApproved(int? id)
         {
             rulesApprover.ApproveDataDrivenRule((int)id);
             return RedirectToAction("Index");
         }
 
+        //Control the views of approver main page after the fixed rules are rejected.
         public ActionResult FixedRulesRejected(int? id)
         {
             rulesApprover.RejectFixedRule((int)id);
             return RedirectToAction("Index");
         }
 
+        //Control the views of approver main page after the data-driven rules are rejected.
         public ActionResult DataDrivenRulesRejected(int? id)
         {
             rulesApprover.RejectDataDrivenRule((int)id);
             return RedirectToAction("Index");
         }
 
-
+        //Control the views of approver report;
         public ActionResult ApproverReportForRule()
         {
-            AllRuleList allRuleList = new AllRuleList();
+            AllRuleListForApprover allRuleList = new AllRuleListForApprover();
             allRuleList.ApprovedFixedRules = rulesApprover.GetFixedRulesByStatus("Approved");
             allRuleList.ApprovedDataDrivenRules = rulesApprover.GetDataDrivenRulesByStatus("Approved");
 
@@ -91,11 +75,11 @@ namespace Assignment2.WebApplication.Controllers
             return View(allRuleList);
         }
 
-
+        //Control the views of approver report for editors.
         public ActionResult ApproverReportForEditor()
         {
 
-            AllRuleList allRuleList = new AllRuleList();
+            AllRuleListForApprover allRuleList = new AllRuleListForApprover();
             var totalApprovedRulesAmy = rulesApprover.GetFixedRulesByStatusForEditor("Approved", "zhouamym@gmail.com").Count 
                           + rulesApprover.GetDataDataDrivenRulesByStatusForEditor("Approved", "zhouamym@gmail.com").Count;
 

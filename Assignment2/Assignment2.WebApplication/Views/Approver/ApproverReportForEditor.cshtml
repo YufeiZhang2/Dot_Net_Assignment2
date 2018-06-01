@@ -6,24 +6,19 @@
 @{
     ViewBag.Title = "Approver - Report for editors";
 }
-<style>
-
-    u {
-        text-decoration: underline;
-    }
-</style>
 
 @using Assignment2.WebApplication.Controllers
 @using Assignment2.Database
-@model AllRuleList
+@model AllRuleListForApprover
 
-
+<!--The button for navigating to the main apprvor page-->
 <br />
 <a href='@Url.Action("index", "Approver")'>
     Back
 </a>
 <br />
 
+<!-- The approver report for editor -->
 <h2><strong>Report for editors:</strong></h2>
 <br />
 <div id="editorReport">

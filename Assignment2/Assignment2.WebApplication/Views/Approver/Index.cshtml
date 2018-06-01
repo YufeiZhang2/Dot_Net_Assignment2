@@ -9,21 +9,25 @@
 
 @using Assignment2.WebApplication.Controllers
 @using Assignment2.Database
-@model AllRuleList
+@model AllRuleListForApprover
 
-<style>
-</style>
+<!--Prompt for logged-in approver.-->
 <p><h2><strong>Welcome! Approver.</strong></h2></p>
 <br />
+
+<!--The button for navigating to the approver report.-->
 <a href='@Url.Action("ApproverReportForRule", "Approver")'>
     Go to report
 </a>
 <br />
 <br />
+<!--The button for navigating to the approver report for editors.-->
 <a href='@Url.Action("ApproverReportForEditor", "Approver")'>
     Go to report for editor
 </a>
 <br />
+
+<!--The lists of unchecked rules.-->
 <p><h2><strong>The Unchecked Rules:</strong></h2></p>
 <br />
 <h3><strong>Fixed Rules:</strong></h3>

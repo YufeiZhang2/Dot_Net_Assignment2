@@ -43,7 +43,6 @@ textarea {
 }
 
 
-
 a {
     background-color: black;
     border: black;
@@ -131,4 +130,8 @@ th {
 .ask:hover, .ask:active {
     background-color: darkblue;
     color: white;
+}
+
+u {
+    text-decoration: underline;
 }
