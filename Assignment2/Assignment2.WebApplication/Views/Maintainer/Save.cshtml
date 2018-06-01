@@ -9,11 +9,11 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Weather Info</title>
+    <title>Add Weather Info</title>
 </head>
 <body>
-    <h1>Weather Info</h1>
-    <h2>Add Weather Info</h2>
+
+    <h2>Maintainer - Add Weather Info</h2>
     @using (Html.BeginForm("Save", "Maintainer"))
     {
         @Html.AntiForgeryToken()
@@ -38,10 +38,12 @@
             @Html.TextBoxFor(w => w.Temperature, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Temperature, "", new { @class = "text-danger" })
         </div>
-
-        <button class="button">Save</button>
+        <div class="form-group">
+            <button class="btn btn-default">Save</button>
+            @Html.ActionLink("Cancel", "Index")
+        </div>
     }
-    <button onclick="location.href = '@Url.Action("Index", "Maintainer")';" class="button">Cancel</button>
+
 </body>
 
 </html>

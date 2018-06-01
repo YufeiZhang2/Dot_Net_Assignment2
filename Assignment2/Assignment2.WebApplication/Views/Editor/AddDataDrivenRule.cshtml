@@ -24,7 +24,29 @@
         </div>
         <div class="form-group">
             @Html.LabelFor(m => m.QuestionColumn)
-            @Html.TextBoxFor(m => m.QuestionColumn, new { @class = "form-control" })
+            @Html.DropDownListFor(m => m.QuestionColumn,
+                                      new[] {
+                        new SelectListItem
+                        {
+                            Text = "Day",
+                            Value = "Day"
+                        },
+                        new SelectListItem
+                        {
+                            Text = "Weather",
+                            Value = "Weather"
+                        },
+                        new SelectListItem
+                        {
+                            Text = "Outfit",
+                            Value = "Outfit"
+                        },
+                        new SelectListItem
+                        {
+                            Text = "Temperature",
+                            Value = "Temperature"
+                        }
+                              }, "Select Question Column", new { @class = "form-control" })
         </div>
         <div class="form-group">
             @Html.LabelFor(m => m.Answer)
@@ -32,11 +54,36 @@
         </div>
         <div class="form-group">
             @Html.LabelFor(m => m.AnswerColumn)
-            @Html.TextBoxFor(m => m.AnswerColumn, new { @class = "form-control" })
+            @Html.DropDownListFor(m => m.AnswerColumn,
+                                   new[] {
+                                    new SelectListItem
+                                    {
+                                        Text = "Day",
+                                        Value = "Day"
+                                    },
+                                    new SelectListItem
+                                    {
+                                        Text = "Weather",
+                                        Value = "Weather"
+                                    },
+                                    new SelectListItem
+                                    {
+                                        Text = "Outfit",
+                                        Value = "Outfit"
+                                    },
+                                    new SelectListItem
+                                    {
+                                        Text = "Temperature",
+                                        Value = "Temperature"
+                                    }
+                                  }, "Select Answer Column", new { @class = "form-control" })
         </div>
 
-        <button class="button">Add</button>
-        @Html.ActionLink("Cancel", "Index")
+        <div class="form-group">
+            <button type="submit" class="btn btn-default">Add</button>
+            @Html.ActionLink("Cancel", "Index")
+        </div>
+        
     }
 </body>
 </html>

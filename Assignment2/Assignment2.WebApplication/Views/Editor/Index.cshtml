@@ -45,16 +45,18 @@
     {
         foreach (var item in Model.UncheckedFixedRules)
         {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.Question</td>
-                <td>@item.Answer</td>
-                <td>@item.CurrentStatus</td>
-                <td>@item.LastEditorID</td>
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.Question</td>
+        <td>@item.Answer</td>
+        <td>@item.CurrentStatus</td>
+        <td>@item.LastEditorID</td>
 
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
-            </tr>
+        <td>
+        @Html.ActionLink("Edit", "UpdateFixedRule", new { id = item.Id })
+        @Html.ActionLink("Delete", "DeleteFixedRule", new { id = item.Id })
+        </td>
+    </tr>
         }
     }
 </table>
@@ -78,18 +80,20 @@
     {
         foreach (var item in Model.UncheckedDataDrivenRules)
         {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.Question</td>
-                <td>@item.QuestionColumn</td>
-                <td>@item.Answer</td>
-                <td>@item.AnswerColumn</td>
-                <td>@item.CurrentStatus</td>
-                <td>@item.LastEditorID</td>
-                
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
-            </tr>
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.Question</td>
+        <td>@item.QuestionColumn</td>
+        <td>@item.Answer</td>
+        <td>@item.AnswerColumn</td>
+        <td>@item.CurrentStatus</td>
+        <td>@item.LastEditorID</td>
+
+        <td>
+        @Html.ActionLink("Edit", "UpdateDataDrivenRule", new { id = item.Id })
+        @Html.ActionLink("Delete", "DeleteDataDrivenRule", new { id = item.Id })
+        </td>
+    </tr>
         }
     }
 </table>
