@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Assignment2.Business;
 using Assignment2.Database;
@@ -15,21 +14,21 @@ namespace Assignment2.WebApplication.Controllers
         public List<DataDrivenRules> ApprovedDataDrivenRules;
         public List<FixedRules> UncheckedFixedRules;
         public List<DataDrivenRules> UncheckedDataDrivenRules;
-        public int totalApprovedRules;
-        public int totalRejectedRules;
-        public double successRate;
+        public int TotalApprovedRules;
+        public int TotalRejectedRules;
+        public double SuccessRate;
 
-        public int totalApprovedRulesAmy;
-        public int totalRejectedRulesAmy;
-        public int totalUncheckedRulesAmy;
-        public double successRateAmy;
+        public int TotalApprovedRulesAmy;
+        public int TotalRejectedRulesAmy;
+        public int TotalUncheckedRulesAmy;
+        public double SuccessRateAmy;
 
-        public int totalApprovedRulesCrys;
-        public int totalRejectedRulesCrys;
-        public int totalUncheckedRulesCrys;
-        public double successRateCrys;
+        public int TotalApprovedRulesCrys;
+        public int TotalRejectedRulesCrys;
+        public int TotalUncheckedRulesCrys;
+        public double SuccessRateCrys;
 
-        public double averageSuccessRate;
+        public double AverageSuccessRate;
     }
 
     [Authorize(Roles = RoleName.Approver)]
@@ -81,13 +80,13 @@ namespace Assignment2.WebApplication.Controllers
             allRuleList.ApprovedFixedRules = rulesApprover.GetFixedRulesByStatus("Approved");
             allRuleList.ApprovedDataDrivenRules = rulesApprover.GetDataDrivenRulesByStatus("Approved");
 
-            allRuleList.totalApprovedRules = rulesApprover.GetDataDrivenRulesByStatus("Approved").Count + rulesApprover.GetFixedRulesByStatus("Approved").Count;
-            allRuleList.totalRejectedRules = rulesApprover.GetFixedRulesByStatus("Rejected").Count + rulesApprover.GetDataDrivenRulesByStatus("Rejected").Count;
+            allRuleList.TotalApprovedRules = rulesApprover.GetDataDrivenRulesByStatus("Approved").Count + rulesApprover.GetFixedRulesByStatus("Approved").Count;
+            allRuleList.TotalRejectedRules = rulesApprover.GetFixedRulesByStatus("Rejected").Count + rulesApprover.GetDataDrivenRulesByStatus("Rejected").Count;
 
-            double result = ((double) allRuleList.totalApprovedRules / (allRuleList.totalApprovedRules +
-                                                                        allRuleList.totalRejectedRules)) * 100;
+            double result = ((double) allRuleList.TotalApprovedRules / (allRuleList.TotalApprovedRules +
+                                                                        allRuleList.TotalRejectedRules)) * 100;
 
-            allRuleList.successRate = Math.Round(result, 2);
+            allRuleList.SuccessRate = Math.Round(result, 2);
 
             return View(allRuleList);
         }
@@ -108,10 +107,10 @@ namespace Assignment2.WebApplication.Controllers
 
             var resultAmy = ((double) totalApprovedRulesAmy / (totalApprovedRulesAmy + totalRejectedRulesAmy)) * 100;
 
-            allRuleList.totalApprovedRulesAmy = totalApprovedRulesAmy;
-            allRuleList.totalRejectedRulesAmy = totalRejectedRulesAmy;
-            allRuleList.totalUncheckedRulesAmy = totalUncheckedRulesAmy;
-            allRuleList.successRateAmy = Math.Round(resultAmy,2);
+            allRuleList.TotalApprovedRulesAmy = totalApprovedRulesAmy;
+            allRuleList.TotalRejectedRulesAmy = totalRejectedRulesAmy;
+            allRuleList.TotalUncheckedRulesAmy = totalUncheckedRulesAmy;
+            allRuleList.SuccessRateAmy = Math.Round(resultAmy,2);
 
             var totalApprovedRulesCrys = rulesApprover.GetFixedRulesByStatusForEditor("Approved", "crysbui.depon@gmail.com").Count
                                         + rulesApprover.GetDataDataDrivenRulesByStatusForEditor("Approved", "crysbui.depon@gmail.com").Count;
@@ -124,17 +123,17 @@ namespace Assignment2.WebApplication.Controllers
 
             var resultCrys = ((double)totalApprovedRulesCrys / (totalApprovedRulesCrys + totalRejectedRulesCrys)) * 100;
 
-            allRuleList.totalApprovedRulesCrys = totalApprovedRulesCrys;
-            allRuleList.totalRejectedRulesCrys = totalRejectedRulesCrys;
-            allRuleList.totalUncheckedRulesCrys = totalUncheckedRulesCrys;
-            allRuleList.successRateCrys = Math.Round(resultCrys, 2);
+            allRuleList.TotalApprovedRulesCrys = totalApprovedRulesCrys;
+            allRuleList.TotalRejectedRulesCrys = totalRejectedRulesCrys;
+            allRuleList.TotalUncheckedRulesCrys = totalUncheckedRulesCrys;
+            allRuleList.SuccessRateCrys = Math.Round(resultCrys, 2);
 
 
             var averageResult = ((double) (totalApprovedRulesAmy + totalApprovedRulesCrys) /
                                  (totalApprovedRulesAmy + totalApprovedRulesCrys + totalRejectedRulesAmy +
                                   totalRejectedRulesCrys)) * 100;
 
-            allRuleList.averageSuccessRate = Math.Round(averageResult,2);
+            allRuleList.AverageSuccessRate = Math.Round(averageResult,2);
 
             return View(allRuleList);
         }
