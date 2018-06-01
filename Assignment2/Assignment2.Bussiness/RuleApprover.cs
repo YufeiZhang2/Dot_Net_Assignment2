@@ -4,8 +4,6 @@ using System.Linq;
 using Assignment2.Database;
 
 
-
-
 namespace Assignment2.Business
 {
     /// <summary>
@@ -15,8 +13,7 @@ namespace Assignment2.Business
     
     public class RuleApprover
     {
-        
-        //list fixed rules
+        //List fixed rules by status.
         public List<FixedRules> GetFixedRulesByStatus(string status)
         {
             using (Context context = new Context())
@@ -27,7 +24,7 @@ namespace Assignment2.Business
             }
         }
 
-        //list data-driven rules
+        //List data-driven rules by stauts.
         public List<DataDrivenRules> GetDataDrivenRulesByStatus(string status)
         {
             using (Context context = new Context())
@@ -38,7 +35,7 @@ namespace Assignment2.Business
             }
         }
 
-        //approve unchecked fixed rules.
+        //Approve unchecked fixed rules by id.
         public void ApproveFixedRule(int id)
         {
 
@@ -52,7 +49,7 @@ namespace Assignment2.Business
 
         }
 
-        //approve unchecked data-driven rules.
+        //Approve unchecked data-driven rules by id.
         public void ApproveDataDrivenRule(int id)
         {
 
@@ -66,10 +63,9 @@ namespace Assignment2.Business
 
         }
 
-        //reject unchecked fixed rules
+        //Reject unchecked fixed rules by id.
         public void RejectFixedRule(int id)
         {
-
             using (Context context = new Context())
             {
                 var rejectedRule = context.FixedRules.Find(id);
@@ -79,9 +75,8 @@ namespace Assignment2.Business
             }
 
         }
-
-
-        //reject uncheck data-driven rules
+        
+        //Reject uncheck data-driven rules by id.
         public void RejectDataDrivenRule(int id)
         {
 
@@ -96,7 +91,7 @@ namespace Assignment2.Business
         }
 
 
-        //list fixed rules of amy
+        //List fixed rules by status and editor id.
         public List<FixedRules> GetFixedRulesByStatusForEditor(string status, string editorId)
         {
             using (Context context = new Context())
@@ -110,7 +105,7 @@ namespace Assignment2.Business
             }
         }
 
-        //list data driven rules of amy
+        //List data driven rules by status and editor id.
         public List<DataDrivenRules> GetDataDataDrivenRulesByStatusForEditor(string status, string editorId)
         {
             using (Context context = new Context())
