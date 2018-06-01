@@ -199,6 +199,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AllRuleListForApprover.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\RoleName.cs" />
@@ -275,6 +276,8 @@
     <Content Include="Views\Maintainer\DeleteWeatherInfo.cshtml" />
     <Content Include="Views\Editor\UpdateDataDrivenRule.cshtml" />
     <Content Include="Views\Editor\DeleteDataDrivenRule.cshtml" />
+    <Content Include="Views\Editor\UpdateFixedRule.cshtml" />
+    <Content Include="Views\Editor\DeleteFixedRule.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

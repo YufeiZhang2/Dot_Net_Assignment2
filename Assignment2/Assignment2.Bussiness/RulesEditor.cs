@@ -60,6 +60,16 @@ namespace Assignment2.Bussiness
             }
         }
 
+        public FixedRules SearchFixedRuleById(int id)
+        {
+            using (Context context = new Context())
+            {
+                return (from c in context.FixedRules
+                        where c.Id == id
+                        select c).FirstOrDefault();
+            }
+        }
+
         /// <summary>
         /// Count the approved rules of one editor. 
         /// </summary>
@@ -128,7 +138,6 @@ namespace Assignment2.Bussiness
 
         public void UpdateFixedRule(FixedRules rule)
         {
-
             using (Context context = new Context())
             {
                 var updatedRule = context.FixedRules.Find(rule.Id);
@@ -138,7 +147,6 @@ namespace Assignment2.Bussiness
                     context.SaveChanges();
                 }
             }
-
         }
 
 
@@ -151,8 +159,7 @@ namespace Assignment2.Bussiness
                 {
                     context.Entry(updatedRule).CurrentValues.SetValues(rule);
                     context.SaveChanges();
-                }
-                
+                }     
             }
         }
 

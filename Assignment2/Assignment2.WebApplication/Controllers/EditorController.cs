@@ -63,6 +63,16 @@ namespace Assignment2.WebApplication.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult AddFixedRule(FixedRules rule)
+        {
+            rule.CurrentStatus = "Unchecked";
+            rule.LastEditorID = User.Identity.Name;
+            rulesEditor.AddFixedRule(rule);
+
+            return RedirectToAction("Index");
+        }
+
         public ActionResult UpdateDataDrivenRule(int? id)
         {
             if (id == null)
@@ -87,11 +97,29 @@ namespace Assignment2.WebApplication.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult UpdateFixedRule()
+        public ActionResult UpdateFixedRule(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var rule = rulesEditor.SearchFixedRuleById((int)id);
+            if (rule == null)
+            {
+                return HttpNotFound();
+            }
+            return View(rule);
         }
-        
+
+        [HttpPost]
+        public ActionResult UpdateFixedRule(FixedRules rule)
+        {
+            rule.LastEditorID = User.Identity.Name;
+            rulesEditor.UpdateFixedRule(rule);
+            return RedirectToAction("Index");
+        }
+
 
         public ActionResult DeleteDataDrivenRule(int? id)
         {
@@ -109,7 +137,6 @@ namespace Assignment2.WebApplication.Controllers
             return View(rule);
         }
 
-
         [HttpPost, ActionName("DeleteDataDrivenRule")]
         public ActionResult DeleteDataDrivenRuleConfirmed(int id)
         {
@@ -120,10 +147,41 @@ namespace Assignment2.WebApplication.Controllers
             }
             rulesEditor.DeleteDataDrivenRule(rule);
 
-
-            
             return RedirectToAction("Index");
         }
+
+        public ActionResult DeleteFixedRule(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var rule = rulesEditor.SearchFixedRuleById((int)id);
+            if (rule == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(rule);
+        }
+
+
+        [HttpPost, ActionName("DeleteFixedRule")]
+        public ActionResult DeleteFixedRuleConfirmed(int id)
+        {
+            var rule = rulesEditor.SearchFixedRuleById((int)id);
+            if (rule == null)
+            {
+                return HttpNotFound();
+            }
+            rulesEditor.DeleteFixedRule(rule);
+
+            return RedirectToAction("Index");
+        }
+
+
+
 
 
         public ActionResult EditorReport()
