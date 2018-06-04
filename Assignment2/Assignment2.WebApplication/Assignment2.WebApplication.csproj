@@ -271,7 +271,7 @@
     <Content Include="Views\Approver\ApproverReportForRule.cshtml" />
     <Content Include="Views\Approver\ApproverReportForEditor.cshtml" />
     <Content Include="Views\Maintainer\Index.cshtml" />
-    <Content Include="Views\Maintainer\Save.cshtml" />
+    <Content Include="Views\Maintainer\AddWeatherInfo.cshtml" />
     <Content Include="Views\Maintainer\EditWeatherInfo.cshtml" />
     <Content Include="Views\Maintainer\DeleteWeatherInfo.cshtml" />
     <Content Include="Views\Editor\UpdateDataDrivenRule.cshtml" />

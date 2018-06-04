@@ -14,15 +14,19 @@
 <body>
 
     <h2>Maintainer - Add Weather Info</h2>
-    @using (Html.BeginForm("Save", "Maintainer"))
+    @using (Html.BeginForm("AddWeatherInfo", "Maintainer"))
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+      
         <div class="form-group">
             @Html.LabelFor(w => w.Day)
-            @Html.TextBoxFor(w => w.Day, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.Day, "", new { @class = "text-danger" })
+            @Html.DropDownListFor(m => m.Day,
+             new SelectList(Enum.GetValues(typeof(DaySelection))),
+             "Select a day", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Day)
         </div>
+
         <div class="form-group">
             @Html.LabelFor(w => w.Weather)
             @Html.TextBoxFor(w => w.Weather, new { @class = "form-control" })
@@ -39,7 +43,7 @@
             @Html.ValidationMessageFor(model => model.Temperature, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
-            <button class="btn btn-default">Save</button>
+            <button class="button">Save</button>
             @Html.ActionLink("Cancel", "Index")
         </div>
     }

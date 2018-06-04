@@ -34,7 +34,7 @@ namespace Assignment2.WebApplication.Controllers
 
         }
 
-        public ActionResult Save()
+        public ActionResult AddWeatherInfo()
         {
             return View();
         }
@@ -42,16 +42,22 @@ namespace Assignment2.WebApplication.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(WeatherInfo weatherInfo)
+        public ActionResult AddWeatherInfo(WeatherInfo weatherInfo)
         {
-            if (ModelState.IsValid)
             {
-                weatherInfo.LastMaintainerId = User.Identity.Name;
-                Maintainer.AddWeatherInfo(weatherInfo);
-            }
+                if (ModelState.IsValid)
+                {
+                        {
+                            weatherInfo.LastMaintainerId = User.Identity.Name;
+                            Maintainer.AddWeatherInfo(weatherInfo);
+                        }
+                   
+                }
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
         }
+
         public ActionResult EditWeatherInfo(int? id)
         {
             if (id == null)
@@ -67,8 +73,8 @@ namespace Assignment2.WebApplication.Controllers
         }
 
         //Bind to make sure that only the properties Day,Weather&outfit will be edited
-        [HttpPost]
-
+       
+            [HttpPost]
         public ActionResult EditWeatherInfo(WeatherInfo weatherInfo)
         {
             weatherInfo.LastMaintainerId = User.Identity.Name;

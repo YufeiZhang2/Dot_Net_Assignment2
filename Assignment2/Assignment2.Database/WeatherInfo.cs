@@ -12,22 +12,35 @@ namespace Assignment2.Database
         [Key]
         public int Id { get; set; }
 
-        [StringLength(10)]
+        [Required(ErrorMessage = "Please select a day")]
         public string Day { get; set; }
 
         [Required]
-        [StringLength(20)]
+        [MaxLength(20)]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z'\s]*$", ErrorMessage = "Please enter characters only")]
         public string Weather { get; set; }
 
         [Required]
-        [StringLength(30)]
+        [MaxLength(30)]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z'\s]*$", ErrorMessage = "Please enter characters only")]
         public string Outfit { get; set; }
 
         [Required]
-        [RegularExpression("^[0-9]*$", ErrorMessage = "Temperature must be numeric")]
+      //  [RegularExpression(@"^[+-]?[0-9]{0,6})?**$", ErrorMessage = "Temperature must be numeric & 2 digits only ")]
         public int Temperature { get; set; }
 
         [StringLength(30)]
         public string LastMaintainerId { get; set; }
+    }
+
+    public enum DaySelection
+    {
+        Sunday,
+        Monday,
+        Tueday,
+        Wednesday,
+        Thursday,
+        Friday,
+        Saturday
     }
 }
