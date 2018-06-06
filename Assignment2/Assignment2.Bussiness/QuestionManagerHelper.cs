@@ -8,10 +8,14 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 namespace Assignment2.Bussiness
-{
+{   
+    // The continued part of QuestionManager class, because there are too many functions in this class.
     partial class QuestionManager
     {
-
+        /// <summary>
+        /// Get the history of the conversation between the chatbot and user.
+        /// </summary>
+        /// <returns></returns>
         public List<Table> GetQuestionHistory()
         {
             using (HistoryContext context = new HistoryContext())
@@ -20,6 +24,9 @@ namespace Assignment2.Bussiness
             }
         }
 
+        /// <summary>
+        /// Clean the conversation history database. It is called when the user leave the main page. 
+        /// </summary>
         public void CleanHistory()
         {
             using (HistoryContext context = new HistoryContext())
@@ -29,6 +36,10 @@ namespace Assignment2.Bussiness
             }
         }
 
+        /// <summary>
+        /// Save the latest dialog to the history.
+        /// </summary>
+        /// <param name="question"></param>
         public void SaveAnswerToHistory(string question)
         {
             string answer = TryGetAnswer(question);
@@ -36,10 +47,8 @@ namespace Assignment2.Bussiness
             {
                 context.Table.Add(new Table { Question = question, Answer = answer });
                 context.SaveChanges();
-
             }
         }
-
 
 
         /// <summary>
@@ -76,6 +85,8 @@ namespace Assignment2.Bussiness
                            where c.Weather.ToLower().Equals(pattern)
                            select c;
 
+                // If there is not any one record that completely equal to the search pattern, 
+                // see if there is one that contains this pattern as part of its value.
                 if (temp.Count() == 0)
                 {
                     temp = from c in context.WeatherInfo
