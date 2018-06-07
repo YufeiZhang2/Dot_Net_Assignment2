@@ -8,26 +8,24 @@ namespace Assignment2.Database
 
     [Table("WeatherInfo")]
     public partial class WeatherInfo
-    {
-        
+    { 
         public int Id { get; set; }
 
         [Key]
         [Required(ErrorMessage = "Please select a day")]
         public string Day { get; set; }
 
-        [Required]
+        
         [MaxLength(20)]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z'\s]*$", ErrorMessage = "Please enter characters only")]
+        [Required(ErrorMessage = "Please enter characters only")]
         public string Weather { get; set; }
 
-        [Required]
+        
         [MaxLength(30)]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z'\s]*$", ErrorMessage = "Please enter characters only")]
+        [Required(ErrorMessage = "Please enter characters only")]
         public string Outfit { get; set; }
 
-        [Required]
-      //  [RegularExpression(@"^[+-]?[0-9]{0,6})?**$", ErrorMessage = "Temperature must be numeric & 2 digits only ")]
+        [Required(ErrorMessage = "Temperature must be numeric & 2 digits only ")]
         public int Temperature { get; set; }
 
         [StringLength(30)]

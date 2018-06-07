@@ -37,7 +37,6 @@ namespace Assignment2.WebApplication.Controllers
 
         public ActionResult AddWeatherInfo()
         {
-
             return View();
         }
 
@@ -110,7 +109,7 @@ namespace Assignment2.WebApplication.Controllers
             var _weatherInfo = maintainer.SearchByDay((string)day);
             if (_weatherInfo == null)
             {
-                throw new Exception("The day you want to edit does not exist!");
+                throw new Exception("The day you want to delete does not exist!");
             }
             maintainer.Delete(_weatherInfo);
             return RedirectToAction("Index");

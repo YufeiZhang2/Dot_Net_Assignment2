@@ -54,7 +54,6 @@ namespace Assignment2.Bussiness
             }
         }
 
-
         /// <summary>
         /// Updates weatherinfo
         /// </summary>
@@ -66,7 +65,6 @@ namespace Assignment2.Bussiness
                 var updated = context.WeatherInfo.Find(weatherInfo.Day);
                 if (updated != null)
                 {
-
                     context.Entry(updated).CurrentValues.SetValues(weatherInfo);
                     context.SaveChanges();
                 }
