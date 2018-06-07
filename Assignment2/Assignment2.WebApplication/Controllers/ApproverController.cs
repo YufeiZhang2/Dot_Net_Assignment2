@@ -12,6 +12,7 @@ namespace Assignment2.WebApplication.Controllers
 
     //Authorising the role of approver.
     [Authorize(Roles = RoleName.Approver)]
+    [HandleError(ExceptionType = typeof(Exception), View = "Error")]
     public class ApproverController : Controller
     {
         RuleApprover rulesApprover = new RuleApprover();

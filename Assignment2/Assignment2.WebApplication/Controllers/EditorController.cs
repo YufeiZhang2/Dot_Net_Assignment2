@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -23,6 +24,7 @@ namespace Assignment2.WebApplication.Controllers
         public string SuccessRate { get; set; }
     }
 
+    [HandleError(ExceptionType = typeof(Exception), View = "Error")]
     [Authorize(Roles = RoleName.Editor)]
     public class EditorController : Controller
     {

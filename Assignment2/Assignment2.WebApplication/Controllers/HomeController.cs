@@ -14,6 +14,7 @@ namespace Assignment2.WebApplication.Controllers
         public string NewQuestion { get; set; }
     }
 
+    [HandleError(ExceptionType = typeof(Exception), View = "Error")]
     [AllowAnonymous]
     public class HomeController : Controller
     {
@@ -26,6 +27,7 @@ namespace Assignment2.WebApplication.Controllers
             model.history = manager.GetQuestionHistory();
 
             return View(model);
+
         }
 
         [HttpPost]

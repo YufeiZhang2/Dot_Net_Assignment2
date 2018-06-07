@@ -20,6 +20,7 @@ namespace Assignment2.WebApplication.Controllers
 
     }
 
+    [HandleError(ExceptionType = typeof(Exception), View = "Error")]
     [Authorize(Roles = RoleName.Maintainer)]
     public class MaintainerController : Controller
     {

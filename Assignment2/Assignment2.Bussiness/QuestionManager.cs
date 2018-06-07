@@ -10,12 +10,18 @@ using System.Threading.Tasks;
 
 namespace Assignment2.Bussiness
 {
+    /// <summary>
+    /// A temporary class to help process the 
+    /// </summary>
     class AnswerToQuestion
     {
         public string answer;
         public string question;
     }
 
+    /// <summary>
+    /// This is used to manage the dialog of the conversation between chatbot and user.
+    /// </summary>
     public partial class QuestionManager
     {
         // Column names in weather table for searching.
@@ -45,13 +51,16 @@ namespace Assignment2.Bussiness
                 // Loop through the data-driven rule questions to check if the input question match any data-driven rule.
                 foreach (var rule in context.DataDrivenRules)
                 {
-                    // Clean the question in the database.
-                    string lowerDbQuestion = Regex.Replace(rule.Question.ToLower().Trim(), @"\s+", " ", RegexOptions.Compiled);
-
-                    // If a match is found, get the correspoinding answer. 
-                    if (IsThisQuestion(lowerUserQuestion, lowerDbQuestion, rule.QuestionColumn.ToLower(), out rowReturned))
+                    if (rule.CurrentStatus == "Approved")
                     {
-                        return GetAnswer(rule.Answer, rule.AnswerColumn.ToLower(), rowReturned);
+                        // Clean the question in the database.
+                        string lowerDbQuestion = Regex.Replace(rule.Question.ToLower().Trim(), @"\s+", " ", RegexOptions.Compiled);
+
+                        // If a match is found, get the correspoinding answer. 
+                        if (IsThisQuestion(lowerUserQuestion, lowerDbQuestion, rule.QuestionColumn.ToLower(), out rowReturned))
+                        {
+                            return GetAnswer(rule.Answer, rule.AnswerColumn.ToLower(), rowReturned);
+                        }
                     }
                 }
 
@@ -80,11 +89,6 @@ namespace Assignment2.Bussiness
         }
 
 
-
-
-
-
-
         /// <summary>
         /// Check if the input question matches the data-driven question in database.
         /// </summary>
@@ -97,6 +101,8 @@ namespace Assignment2.Bussiness
         {
             theRow = null;
             questionColumn = questionColumn.ToLower();
+
+            if (!dbQuestion.Contains("*")) return false;
 
             // See if questions match. Split the database question into 2 parts. 
             string[] cutQuestion = dbQuestion.Split('*');
