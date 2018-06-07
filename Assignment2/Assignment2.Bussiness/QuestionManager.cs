@@ -37,13 +37,12 @@ namespace Assignment2.Bussiness
             string lowerUserQuestion = question.ToLower().Trim();
             string cleanUserQuestion = Regex.Replace(lowerUserQuestion, @"[^a-zA-Z0-9]", string.Empty, RegexOptions.Compiled);
 
-
             using (Context context = new Context())
             {
 
                 // Check data rules next. It is more complicated.
                 // Clean the raw input first.
-                lowerUserQuestion = Regex.Replace(question.ToLower().Trim(), @"\s+", " ", RegexOptions.Compiled);
+                lowerUserQuestion = Regex.Replace(lowerUserQuestion, @"[^a-zA-Z0-9]", string.Empty, RegexOptions.Compiled);
 
                 // Store a row of the weather table.
                 WeatherInfo rowReturned;
@@ -54,7 +53,7 @@ namespace Assignment2.Bussiness
                     if (rule.CurrentStatus == "Approved")
                     {
                         // Clean the question in the database.
-                        string lowerDbQuestion = Regex.Replace(rule.Question.ToLower().Trim(), @"\s+", " ", RegexOptions.Compiled);
+                        string lowerDbQuestion = Regex.Replace(rule.Question.ToLower().Trim(), @"[^a-zA-Z0-9*]", string.Empty, RegexOptions.Compiled);
 
                         // If a match is found, get the correspoinding answer. 
                         if (IsThisQuestion(lowerUserQuestion, lowerDbQuestion, rule.QuestionColumn.ToLower(), out rowReturned))
@@ -64,7 +63,7 @@ namespace Assignment2.Bussiness
                     }
                 }
 
-
+                // Loop through the fixed rule questions to check if the input question match any fixed rule.
                 var answers = context.FixedRules
                     .Where(rule => rule.CurrentStatus == "Approved").ToList()
                     .Select(
@@ -85,7 +84,6 @@ namespace Assignment2.Bussiness
                     return null;
                 }
             }
-
         }
 
 
@@ -108,14 +106,21 @@ namespace Assignment2.Bussiness
             string[] cutQuestion = dbQuestion.Split('*');
 
             // Return false if the input question cannot match the database question. 
-            if (!askedQuestion.Contains(cutQuestion[0]) && !askedQuestion.Contains(cutQuestion[1])) return false;
-            if (askedQuestion.IndexOf(cutQuestion[0]) < 0 || askedQuestion.IndexOf(cutQuestion[1]) < 0) return false;
-            if (askedQuestion.IndexOf(cutQuestion[0]) + cutQuestion[0].Length + 1 > askedQuestion.IndexOf(cutQuestion[1])
-                && cutQuestion[1].Length > 0) return false;
+            if (!askedQuestion.Contains(cutQuestion[0]) || !askedQuestion.Contains(cutQuestion[1])) return false;
+
+            int partOneStart = askedQuestion.IndexOf(cutQuestion[0]);
+            int partOneLength = cutQuestion[0].Length;
+            int partTwoStart = askedQuestion.IndexOf(cutQuestion[1], partOneStart + partOneLength);
+            int partTwoLength = cutQuestion[1].Length;
+
+
+            if (partOneStart < 0 || partTwoStart < 0) return false;
+            if (partOneStart + partOneLength == partTwoStart && partTwoLength > 0) return false;
 
             // Extract colum value from the input question. 
-            string columValue = askedQuestion.Substring(askedQuestion.IndexOf(cutQuestion[0]) + cutQuestion[0].Length,
-                askedQuestion.IndexOf(cutQuestion[1]) - (askedQuestion.IndexOf(cutQuestion[0]) + cutQuestion[0].Length));
+            
+            string columValue = partTwoLength > 0? askedQuestion.Substring(partOneStart + partOneLength, partTwoStart - (partOneStart + partOneLength)):
+                askedQuestion.Substring(partOneStart + partOneLength, askedQuestion.Length - (partOneStart + partOneLength));
             if (columValue.Trim() == "") return false;
 
             // Return the answer value.

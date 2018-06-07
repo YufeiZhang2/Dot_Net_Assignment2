@@ -10,10 +10,10 @@ namespace Assignment2.Database
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "This field should not be empty.")]
         public string Question { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "This field should not be empty.")]
         public string Answer { get; set; }
 
         [StringLength(10)]

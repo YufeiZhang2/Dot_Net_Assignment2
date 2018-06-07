@@ -79,8 +79,10 @@ E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\En
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\Assignment2.Database.pdb
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\Assignment2.Database.dll.config
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\EntityFramework.SqlServer.xml
-E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.csprojResolveAssemblyReference.cache
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.csproj.CoreCompileInputs.cache
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.csproj.CopyComplete
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.dll
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.pdb
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\obj\Debug\Assignment2.Bussiness.csprojAssemblyReference.cache
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\DatabaseTest - backup.mdf
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Bussiness\bin\Debug\DatabaseTest - backup_log.ldf

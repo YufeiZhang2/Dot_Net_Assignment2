@@ -10,7 +10,7 @@ namespace Assignment2.Database
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "This field should not be empty.")]
         public string Question { get; set; }
 
         [Required(ErrorMessage = "Please select a column")]
@@ -18,7 +18,7 @@ namespace Assignment2.Database
         [Display(Name = "Question Column")]
         public string QuestionColumn { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "This field should not be empty.")]
         public string Answer { get; set; }
 
         [Required(ErrorMessage = "Please select a column")]
