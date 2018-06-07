@@ -13,7 +13,11 @@ namespace Assignment2.Bussiness
     {
         HashSet<string> validColumn = new HashSet<string>() { "day", "weather", "outfit", "temperature" };
 
-
+        /// <summary>
+        /// Get a list of fixed rules by given status
+        /// </summary>
+        /// <param name="status">the status of the rule</param>
+        /// <returns></returns>
         public List<FixedRules> GetFixedRulesByStatus(string status)
         {
             using (Context context = new Context())
@@ -24,6 +28,11 @@ namespace Assignment2.Bussiness
             }
         }
 
+        /// <summary>
+        /// Get a list of data-driven rules by given status
+        /// </summary>
+        /// <param name="status">The status of the rules</param>
+        /// <returns></returns>
         public List<DataDrivenRules> GetDataDrivenRulesByStatus(string status)
         {
             using (Context context = new Context())
@@ -34,6 +43,12 @@ namespace Assignment2.Bussiness
             }
         }
 
+        /// <summary>
+        /// Get fixed rule by given status and username
+        /// </summary>
+        /// <param name="status">The status of the rule</param>
+        /// <param name="username">The username of the last editor</param>
+        /// <returns></returns>
         public List<FixedRules> GetYourFixedRulesByStatus(string status, string username)
         {
             using (Context context = new Context())
@@ -44,6 +59,12 @@ namespace Assignment2.Bussiness
             }
         }
 
+        /// <summary>
+        /// Get data-driven rule by given status and username
+        /// </summary>
+        /// <param name="status">The status of the rule</param>
+        /// <param name="username">The username of the last editor</param>
+        /// <returns>The rule with searching status and username</returns>
         public List<DataDrivenRules> GetYourDataDrivenRulesByStatus(string status, string username)
         {
             using (Context context = new Context())
@@ -54,6 +75,11 @@ namespace Assignment2.Bussiness
             }
         }
 
+        /// <summary>
+        /// Search data-driven rule by given ID
+        /// </summary>
+        /// <param name="id">ID of the data-driven rule</param>
+        /// <returns>The rule with given ID</returns>
         public DataDrivenRules SearchDataDrivenRuleById(int id)
         {
             using (Context context = new Context())
@@ -64,6 +90,11 @@ namespace Assignment2.Bussiness
             }
         }
 
+        /// <summary>
+        /// Search fixed rule by given ID
+        /// </summary>
+        /// <param name="id">ID of the rule</param>
+        /// <returns>The rule with given ID</returns>
         public FixedRules SearchFixedRuleById(int id)
         {
             using (Context context = new Context())
@@ -118,7 +149,10 @@ namespace Assignment2.Bussiness
         }
 
 
-
+        /// <summary>
+        /// Add new fixed rule
+        /// </summary>
+        /// <param name="rule">The new rule to be added</param>
         public void AddFixedRule(FixedRules rule)
         {
             // Check if this rule exists before adding and check if the rule itself is valid.
@@ -135,7 +169,10 @@ namespace Assignment2.Bussiness
             }
         }
 
-
+        /// <summary>
+        /// Add new data-driven rule
+        /// </summary>
+        /// <param name="rule">The new rule to be added</param>
         public void AddDataDrivenRule(DataDrivenRules rule)
         {
             // Check if this rule exists before adding and check if the rule itself is valid.
@@ -152,7 +189,10 @@ namespace Assignment2.Bussiness
             }
         }
 
-
+        /// <summary>
+        /// Update given fixed rule
+        /// </summary>
+        /// <param name="rule">the given rule</param>
         public void UpdateFixedRule(FixedRules rule)
         {
             // Check if this rule exists before editing and check if the rule itself is valid.
@@ -173,7 +213,10 @@ namespace Assignment2.Bussiness
             }
         }
 
-
+        /// <summary>
+        /// Update the given data-driven rule
+        /// </summary>
+        /// <param name="rule">the given rule</param>
         public void UpdateDataDrivenRule(DataDrivenRules rule)
         {
             // Check if this rule exists before editing and check if the rule itself is valid.
@@ -195,7 +238,13 @@ namespace Assignment2.Bussiness
         }
 
 
-
+        /// <summary>
+        /// Validate fixed rule
+        /// </summary>
+        /// <param name="question">The question</param>
+        /// <param name="answer">The answer</param>
+        /// <param name="isNew">Whether this rule is new or and existing rule</param>
+        /// <param name="ruleID">The rule ID</param>
         private void ValidateFixedRule(string question, string answer, bool isNew, int ruleID)
         {
             if (question == null || answer == null) throw new Exception("Your question or answer is empty");
@@ -237,7 +286,15 @@ namespace Assignment2.Bussiness
         }
 
 
-
+        /// <summary>
+        /// Validate data-driven rule
+        /// </summary>
+        /// <param name="question">The question</param>
+        /// <param name="questionColumn">The question column</param>
+        /// <param name="answer">The answer</param>
+        /// <param name="answerColumn">The answer column</param>
+        /// <param name="isNew">Whether this rule is new or and existing rule</param>
+        /// <param name="ruleID">The rule ID</param>
         private void ValidateDataDrivenRule(string question, string questionColumn, string answer, string answerColumn, bool isNew, int ruleID)
         {
             if (question == null || answer == null || questionColumn == null || answerColumn == null ||
@@ -290,7 +347,10 @@ namespace Assignment2.Bussiness
         }
 
 
-
+        /// <summary>
+        /// Delete the given fixed rule
+        /// </summary>
+        /// <param name="rule">The given rule</param>
         public void DeleteFixedRule(FixedRules rule)
         {
 
@@ -303,6 +363,10 @@ namespace Assignment2.Bussiness
 
         }
 
+        /// <summary>
+        /// Delete the given data-driven rule
+        /// </summary>
+        /// <param name="rule">The given rule</param>
         public void DeleteDataDrivenRule(DataDrivenRules rule)
         {
             using (Context context = new Context())

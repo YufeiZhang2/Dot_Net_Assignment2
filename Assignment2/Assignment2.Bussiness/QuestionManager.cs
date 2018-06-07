@@ -30,6 +30,11 @@ namespace Assignment2.Bussiness
         const string outfitColumn = "outfit";
         const string temperatureColumn = "temperature";
 
+        /// <summary>
+        /// Try finding the answer from the given question
+        /// </summary>
+        /// <param name="question">The given question</param>
+        /// <returns>The answer</returns>
         public string TryGetAnswer(string question)
         {
             // Check simple rules first

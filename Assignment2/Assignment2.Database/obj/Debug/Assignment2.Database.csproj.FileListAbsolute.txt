@@ -86,3 +86,5 @@ E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Database\obj\Debug\Ass
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Database\obj\Debug\Assignment2.Database.csprojAssemblyReference.cache
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Database\bin\Debug\DatabaseTest - backup.mdf
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.Database\bin\Debug\DatabaseTest - backup_log.ldf
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.Database\bin\Debug\DatabaseTest - backup.mdf
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.Database\bin\Debug\DatabaseTest - backup_log.ldf
