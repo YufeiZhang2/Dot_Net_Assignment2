@@ -649,3 +649,5 @@ E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\obj\Deb
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\obj\Debug\Assignment2.WebApplication.dll
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\obj\Debug\Assignment2.WebApplication.pdb
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\obj\Debug\Assignment2.WebApplication.csprojAssemblyReference.cache
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\DatabaseTest - backup.mdf
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.WebApplication\bin\DatabaseTest - backup_log.ldf

@@ -204,6 +204,9 @@ namespace Assignment2.Bussiness
             string lowerUserQuestion = question.ToLower().Trim();
             string lowerUserAnswer = answer.ToLower().Trim();
 
+            if (lowerUserQuestion == string.Empty || lowerUserAnswer == string.Empty) throw new Exception("Your question or answer is empty");
+
+
             if ((lowerUserQuestion.Length > 15 && !lowerUserQuestion.Contains(" ")) || (lowerUserAnswer.Length > 15 && !lowerUserAnswer.Contains(" ")))
                 throw new Exception("Sorry, this question or answer may be meaningless! Please try other words!");
 
