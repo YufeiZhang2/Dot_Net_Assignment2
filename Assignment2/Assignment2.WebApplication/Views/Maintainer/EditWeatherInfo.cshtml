@@ -6,9 +6,13 @@
 <head>
     <meta name="viewport" content="width=device-width" />
 
-    <h2>Maintainer - Edit Page</h2>
+    <h1>Maintainer - Edit Page</h1>
+
 </head>
+
 <body>
+    <h2> You want to edit   @Html.DisplayFor(w => w.Day)</h2>
+
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -20,10 +24,6 @@
             @Html.HiddenFor(w => w.Id)
 
             <div class="form-group">
-                <> You want to edit </> 
-                <div class="col-md-10">
-                @Html.DisplayFor(w=> w.Day)
-                </div>
                 <div class="col-md-10">
                     @Html.HiddenFor(w => w.Day)
                 </div>

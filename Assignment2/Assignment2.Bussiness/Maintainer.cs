@@ -47,7 +47,7 @@ namespace Assignment2.Bussiness
         {
             using (var context = new Context())
             {
-                var saved = context.WeatherInfo.Find(weatherInfo.Id);
+                var saved = context.WeatherInfo.Find(weatherInfo.Day);
                 context.WeatherInfo.Remove(saved);
                 context.SaveChanges();
 
@@ -63,7 +63,7 @@ namespace Assignment2.Bussiness
         {
             using (var context = new Context())
             {
-                var updated = context.WeatherInfo.Find(weatherInfo.Id);
+                var updated = context.WeatherInfo.Find(weatherInfo.Day);
                 if (updated != null)
                 {
 
@@ -83,8 +83,19 @@ namespace Assignment2.Bussiness
                     select w).FirstOrDefault();
 
             }
-
         }
+
+        public WeatherInfo SearchByDay(string day)
+            {
+                using (var context = new Context())
+                {
+                    return (from w in context.WeatherInfo
+                        where w.Day == day
+                        select w).FirstOrDefault();
+
+                }
+
+            }
     }
 }
     
