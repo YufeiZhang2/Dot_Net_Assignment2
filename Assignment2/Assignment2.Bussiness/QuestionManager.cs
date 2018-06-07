@@ -43,7 +43,7 @@ namespace Assignment2.Bussiness
 
                 // Check data rules next. It is more complicated.
                 // Clean the raw input first.
-                lowerUserQuestion = Regex.Replace(question.ToLower().Trim(), @"\s+", " ", RegexOptions.Compiled);
+                lowerUserQuestion = Regex.Replace(lowerUserQuestion, @"\s+", " ", RegexOptions.Compiled);
 
                 // Store a row of the weather table.
                 WeatherInfo rowReturned;
