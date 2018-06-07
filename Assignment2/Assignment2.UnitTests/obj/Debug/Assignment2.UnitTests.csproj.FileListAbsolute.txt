@@ -20,7 +20,6 @@ C:\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\bin\Debug\Assignment2.D
 C:\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
 C:\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
 C:\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\bin\Debug\nunit.framework.dll
-C:\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\bin\Debug\EntityFramework.dll
 C:\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\bin\Debug\EntityFramework.SqlServer.dll
 C:\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\bin\Debug\Assignment2.Bussiness.pdb
 C:\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\bin\Debug\Assignment2.Database.pdb
@@ -109,3 +108,7 @@ E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\obj\Debug\As
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\obj\Debug\Assignment2.UnitTests.dll
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\obj\Debug\Assignment2.UnitTests.pdb
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\obj\Debug\Assignment2.UnitTests.csprojAssemblyReference.cache
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\bin\Debug\DatabaseTest - backup.mdf
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\bin\Debug\DatabaseTest - backup_log.ldf
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\bin\Debug\SmallDbForQuestionHistory\History.mdf
+C:\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\bin\Debug\SmallDbForQuestionHistory\History_log.ldf

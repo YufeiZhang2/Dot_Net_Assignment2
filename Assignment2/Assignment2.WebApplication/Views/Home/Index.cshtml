@@ -40,7 +40,7 @@
     <div id="question">
         @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { DefaultButton = "submit_btn", id = "form" }))
         {
-            @Html.TextAreaFor(x => x.NewQuestion)
+            @Html.TextAreaFor(x => x.NewQuestion, new { @class = "form-control", id = "questionArea" })
             <button type="submit" id="submit_btn" class="ask"> Ask! </button>
         }
     </div>
