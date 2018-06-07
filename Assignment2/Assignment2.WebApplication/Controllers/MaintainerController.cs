@@ -37,45 +37,50 @@ namespace Assignment2.WebApplication.Controllers
 
         public ActionResult AddWeatherInfo()
         {
+
             return View();
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddWeatherInfo(WeatherInfo weatherInfo)
+        public ActionResult AddWeatherInfo(WeatherInfo weatherInfo, string day)
         {
             {
                 if (ModelState.IsValid)
                 {
-                        {
-                            weatherInfo.LastMaintainerId = User.Identity.Name;
-                            Maintainer.AddWeatherInfo(weatherInfo);
-                        }
-                   
+                    var _weatherInfo = maintainer.SearchByDay((string)day);
+                    if (_weatherInfo != null)
+                    {
+                        throw new Exception("The day already exist, please choose another day!");
+                    }
+                    else
+                    {
+                        weatherInfo.LastMaintainerId = User.Identity.Name;
+                        Maintainer.AddWeatherInfo(weatherInfo);
+                    }
+
                 }
 
                 return RedirectToAction("Index");
             }
         }
 
-        public ActionResult EditWeatherInfo(int? id)
+        public ActionResult EditWeatherInfo(string day)
         {
-            if (id == null)
+            if (day == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                throw new Exception ("Please choose the day you want to edit!");
             }
-            var weatherInfo = maintainer.SearchById((int)id);
+            var weatherInfo = maintainer.SearchByDay((string)day);
             if (weatherInfo == null)
             {
-                return HttpNotFound();
+                throw new Exception("The day you want to edit does not exist!");
             }
             return View(weatherInfo);
         }
 
-        //Bind to make sure that only the properties Day,Weather&outfit will be edited
-       
-            [HttpPost]
+      
+        [HttpPost]
         public ActionResult EditWeatherInfo(WeatherInfo weatherInfo)
         {
             weatherInfo.LastMaintainerId = User.Identity.Name;
@@ -83,31 +88,31 @@ namespace Assignment2.WebApplication.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult DeleteWeatherInfo(int? id)
+        public ActionResult DeleteWeatherInfo(string day)
         {
-            if (id == null)
+            if (day == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                throw new Exception("Please choose the day you want to delete!");
             }
-            var contact = maintainer.SearchById((int)id);
-            if (contact == null)
+            var _weatherinfo = maintainer.SearchByDay((string)day);
+            if (_weatherinfo == null)
             {
-                return HttpNotFound();
+                throw new Exception("The day you want to delete does not exist!");
             }
-            return View(contact);
+            return View(_weatherinfo);
         }
 
         // POST: PersonalContacts/Delete/5
-        // Delete a contact
+        // Delete a weatherinfo
         [HttpPost, ActionName("DeleteWeatherInfo")]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string day)
         {
-            var weatherInfo = maintainer.SearchById((int)id);
-            if (weatherInfo == null)
+            var _weatherInfo = maintainer.SearchByDay((string)day);
+            if (_weatherInfo == null)
             {
-                return HttpNotFound();
+                throw new Exception("The day you want to edit does not exist!");
             }
-            maintainer.Delete(weatherInfo);
+            maintainer.Delete(_weatherInfo);
             return RedirectToAction("Index");
         }
     }

@@ -9,9 +9,10 @@ namespace Assignment2.Database
     [Table("WeatherInfo")]
     public partial class WeatherInfo
     {
-        [Key]
+        
         public int Id { get; set; }
 
+        [Key]
         [Required(ErrorMessage = "Please select a day")]
         public string Day { get; set; }
 
