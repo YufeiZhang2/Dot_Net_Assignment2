@@ -105,8 +105,8 @@ E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\bin\Debug\Mi
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\bin\Debug\nunit.framework.xml
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\bin\Debug\EntityFramework.SqlServer.xml
-E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\obj\Debug\Assignment2.UnitTests.csprojResolveAssemblyReference.cache
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\obj\Debug\Assignment2.UnitTests.csproj.CoreCompileInputs.cache
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\obj\Debug\Assignment2.UnitTests.csproj.CopyComplete
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\obj\Debug\Assignment2.UnitTests.dll
 E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\obj\Debug\Assignment2.UnitTests.pdb
+E:\VSprojects\Dot_Net_Assignment2\Assignment2\Assignment2.UnitTests\obj\Debug\Assignment2.UnitTests.csprojAssemblyReference.cache

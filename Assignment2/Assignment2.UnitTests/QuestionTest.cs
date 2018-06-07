@@ -29,6 +29,7 @@ namespace Assignment2.UnitTests
         [TestCase("What is the temperature on this *?!")]
         [TestCase("What is the day when it is 99 Celsius degree?")]
         [TestCase("What is the day when it is NaN Celsius degree?")]
+        [TestCase("When should I wear nothing?")]
         public void GetAnswerToAQuestion_InvalidQuestion_ReturnNull(string question)
         {
             string result = questionManager.TryGetAnswer(question);
@@ -44,11 +45,17 @@ namespace Assignment2.UnitTests
         [TestCase("hello")]
         [TestCase("hel???lo")]
         [TestCase("hello#%@")]
+        [TestCase("hello#%@world")]
+        [TestCase("What is the day when it is 20 Celsius degree?")]
+        [TestCase("What should I #%@wear when it is rainy?!")]
+        [TestCase("What is the temperature on this tuesday???????!!??")]
+        [TestCase("When should/// I wear??? coat?")]
+        [TestCase("What can you do?")]
         public void GetAnswerToAQuestion_ValidQuestion_ReturnNotNull(string question)
         {
             string result = questionManager.TryGetAnswer(question);
 
-            Assert.That(result == "Hi! How are you?");
+            Assert.That(result != null);
         }
     }
 }
