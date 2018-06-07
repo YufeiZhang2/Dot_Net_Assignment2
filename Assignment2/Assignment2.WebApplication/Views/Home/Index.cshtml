@@ -7,7 +7,6 @@
 @model NewModel
 
 
-
 <div class="jumbotron">
     <h1>WEARther Forecast</h1>
     <p class="lead">We can provide you with information about the weather and recommendation of what to wear within a week.</p>
@@ -39,10 +38,10 @@
     </div>
 
     <div id="question">
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { DefaultButton = "submit_btn", id = "form" }))
         {
             @Html.TextAreaFor(x => x.NewQuestion)
-            <button type="submit" class="ask"> Ask! </button>
+            <button type="submit" id="submit_btn" class="ask"> Ask! </button>
         }
     </div>
 </div>
@@ -53,6 +52,19 @@
     $(document).ready(function () {
         var chat = document.getElementById("history");
         chat.scrollTop = chat.scrollHeight;
+    });
+
+    // Enable "Enter" keypress as a default submit button
+    $(document).ready(function () {
+        $("#form").keypress(function (e) {
+            keycode = e.keyCode || e.charCode || e.which //for cross browser
+            if (keycode == 13)    //keyCode for enter key
+            {
+                var defaultbutton = $(this).attr("DefaultButton");
+                $("#" + defaultbutton).click();
+                return false;
+            }
+        });
     });
 
 </script>
