@@ -32,9 +32,15 @@ namespace Assignment2.WebApplication.Controllers
         // GET: Maintainer
         public ActionResult Index()
         {
-            // Set the LastMaintainerID as the current logged-in user
-            return View(Maintainer.GetWeatherInfos(User.Identity.Name).ToList());
-
+            try
+            {
+                // Set the LastMaintainerID as the current logged-in user
+                return View(Maintainer.GetWeatherInfos(User.Identity.Name).ToList());
+            }
+            catch (Exception e)
+            {
+                return View("Error", new HandleErrorInfo(e, "Maintainer", "Index"));
+            }
         }
 
         // Control the view when adding new weatherInfo
@@ -48,7 +54,7 @@ namespace Assignment2.WebApplication.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddWeatherInfo(WeatherInfo weatherInfo, string day)
         {
-            {
+            try{
                 if (ModelState.IsValid)
                 {
                     var _weatherInfo = maintainer.SearchByDay((string)day);
@@ -66,46 +72,73 @@ namespace Assignment2.WebApplication.Controllers
 
                 return RedirectToAction("Index");
             }
+            catch (Exception e)
+            {
+                return View("Error", new HandleErrorInfo(e, "Maintainer", "AddWeatherInfo"));
+            }
         }
 
         // Control the view when updating the WeatherInfo
         // throws exception if day is not found
         public ActionResult EditWeatherInfo(string day)
         {
-            if (day == null)
+            try
             {
-                throw new Exception ("Please choose the day you want to edit!");
+                if (day == null)
+                {
+                    throw new Exception("Please choose the day you want to edit!");
+                }
+                var weatherInfo = maintainer.SearchByDay((string)day);
+                if (weatherInfo == null)
+                {
+                    throw new Exception("The day you want to edit does not exist!");
+                }
+                return View(weatherInfo);
             }
-            var weatherInfo = maintainer.SearchByDay((string)day);
-            if (weatherInfo == null)
+            catch (Exception e)
             {
-                throw new Exception("The day you want to edit does not exist!");
+                return View("Error", new HandleErrorInfo(e, "Maintainer", "EditWeatherInfo"));
             }
-            return View(weatherInfo);
         }
 
         // Control the view and action after submitting the update of the weatherInfo
         [HttpPost]
         public ActionResult EditWeatherInfo(WeatherInfo weatherInfo)
         {
-            weatherInfo.LastMaintainerId = User.Identity.Name;
-            maintainer.Update(weatherInfo);
-            return RedirectToAction("Index");
+            try
+            {
+                weatherInfo.LastMaintainerId = User.Identity.Name;
+                maintainer.Update(weatherInfo);
+                return RedirectToAction("Index");
+
+            }
+            catch (Exception e)
+            {
+                return View("Error", new HandleErrorInfo(e, "Maintainer", "EditWeatherInfo"));
+            }
         }
 
         // Control the view when deleting weatherInfo with the given day
         public ActionResult DeleteWeatherInfo(string day)
         {
-            if (day == null)
+            try
             {
-                throw new Exception("Please choose the day you want to delete!");
+                if (day == null)
+                {
+                    throw new Exception("Please choose the day you want to delete!");
+                }
+                var _weatherinfo = maintainer.SearchByDay((string)day);
+                if (_weatherinfo == null)
+                {
+                    throw new Exception("The day you want to delete does not exist!");
+                }
+                return View(_weatherinfo);
+
             }
-            var _weatherinfo = maintainer.SearchByDay((string)day);
-            if (_weatherinfo == null)
+            catch (Exception e)
             {
-                throw new Exception("The day you want to delete does not exist!");
+                return View("Error", new HandleErrorInfo(e, "Maintainer", "DeleteWeatherInfo"));
             }
-            return View(_weatherinfo);
         }
 
         // Control the view and action after confirming the deletion of weatherInfo
@@ -113,13 +146,20 @@ namespace Assignment2.WebApplication.Controllers
         [HttpPost, ActionName("DeleteWeatherInfo")]
         public ActionResult DeleteConfirmed(string day)
         {
-            var _weatherInfo = maintainer.SearchByDay((string)day);
-            if (_weatherInfo == null)
+            try
             {
-                throw new Exception("The day you want to delete does not exist!");
+                var _weatherInfo = maintainer.SearchByDay((string)day);
+                if (_weatherInfo == null)
+                {
+                    throw new Exception("The day you want to delete does not exist!");
+                }
+                maintainer.Delete(_weatherInfo);
+                return RedirectToAction("Index");
             }
-            maintainer.Delete(_weatherInfo);
-            return RedirectToAction("Index");
+            catch (Exception e)
+            {
+                return View("Error", new HandleErrorInfo(e, "Maintainer", "DeleteConfirmed"));
+            }
         }
     }
 

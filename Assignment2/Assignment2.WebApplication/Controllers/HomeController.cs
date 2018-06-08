@@ -25,13 +25,21 @@ namespace Assignment2.WebApplication.Controllers
         // Control the view of main page after loading
         public ActionResult Index()
         {
-            NewModel model = new NewModel();
+            try
+            {
+                NewModel model = new NewModel();
 
-            // Reset the chat box history to be empty
-            manager.CleanHistory();
-            model.history = manager.GetQuestionHistory();
+                // Reset the chat box history to be empty
+                manager.CleanHistory();
+                model.history = manager.GetQuestionHistory();
 
-            return View(model);
+                return View(model);
+
+            }
+            catch (Exception e)
+            {
+                return View("Error", new HandleErrorInfo(e, "Home", "Index"));
+            }
 
         }
 
@@ -39,13 +47,21 @@ namespace Assignment2.WebApplication.Controllers
         [HttpPost]
         public ActionResult Index(NewModel model)
         {
-            if (model.NewQuestion != null && model.NewQuestion != "")
+            try
             {
-                manager.SaveAnswerToHistory(model.NewQuestion);
-            }
-            model.history = manager.GetQuestionHistory();
+                if (model.NewQuestion != null && model.NewQuestion != "")
+                {
+                    manager.SaveAnswerToHistory(model.NewQuestion);
+                }
+                model.history = manager.GetQuestionHistory();
 
-            return View(model);
+                return View(model);
+
+            }
+            catch (Exception e)
+            {
+                return View("Error", new HandleErrorInfo(e, "Home", "Index"));
+            }
         }
     }
 }

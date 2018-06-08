@@ -36,15 +36,22 @@ namespace Assignment2.WebApplication.Controllers
         // GET: Editor
         public ActionResult Index()
         {
-            AllLists allLists = new AllLists();
+            try
+            {
+                AllLists allLists = new AllLists();
 
-            allLists.RejectedDataDrivenRules = rulesEditor.GetDataDrivenRulesByStatus("Rejected");
-            allLists.UncheckedDataDrivenRules = rulesEditor.GetDataDrivenRulesByStatus("Unchecked");
+                allLists.RejectedDataDrivenRules = rulesEditor.GetDataDrivenRulesByStatus("Rejected");
+                allLists.UncheckedDataDrivenRules = rulesEditor.GetDataDrivenRulesByStatus("Unchecked");
 
-            allLists.RejectedFixedRules = rulesEditor.GetFixedRulesByStatus("Rejected");
-            allLists.UncheckedFixedRules = rulesEditor.GetFixedRulesByStatus("Unchecked");
+                allLists.RejectedFixedRules = rulesEditor.GetFixedRulesByStatus("Rejected");
+                allLists.UncheckedFixedRules = rulesEditor.GetFixedRulesByStatus("Unchecked");
 
-            return View(allLists);
+                return View(allLists);
+            }
+            catch (Exception e)
+            {
+                return View("Error", new HandleErrorInfo(e, "Editor", "Index"));
+            }
         }
 
 
@@ -62,17 +69,23 @@ namespace Assignment2.WebApplication.Controllers
         [HttpPost]
         public ActionResult AddDataDrivenRule([Bind(Include = "Question,QuestionColumn,Answer,AnswerColumn")] DataDrivenRules rule)
         {
- 
-            if (ModelState.IsValid)
+            try
             {
-                rule.CurrentStatus = "Unchecked";
-                rule.LastEditorID = User.Identity.Name;
-                rulesEditor.AddDataDrivenRule(rule);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    rule.CurrentStatus = "Unchecked";
+                    rule.LastEditorID = User.Identity.Name;
+                    rulesEditor.AddDataDrivenRule(rule);
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View(rule);
+                }
             }
-            else
+            catch (Exception e)
             {
-                return View(rule);
+                return View("Error", new HandleErrorInfo(e, "Editor", "AddDataDrivenRule"));
             }
         }
 
@@ -90,17 +103,24 @@ namespace Assignment2.WebApplication.Controllers
         [HttpPost]
         public ActionResult AddFixedRule([Bind(Include = "Question,Answer")] FixedRules rule)
         {
-            if (ModelState.IsValid)
+            try
             {
-                rule.CurrentStatus = "Unchecked";
-                rule.LastEditorID = User.Identity.Name;
-                rulesEditor.AddFixedRule(rule);
+                if (ModelState.IsValid)
+                {
+                    rule.CurrentStatus = "Unchecked";
+                    rule.LastEditorID = User.Identity.Name;
+                    rulesEditor.AddFixedRule(rule);
 
-                return RedirectToAction("Index");
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View(rule);
+                }
             }
-            else
+            catch (Exception e)
             {
-                return View(rule);
+                return View("Error", new HandleErrorInfo(e, "Editor", "AddFixedRule"));
             }
 
         }
@@ -110,17 +130,25 @@ namespace Assignment2.WebApplication.Controllers
         // Control the view when editing a data-driven rule
         public ActionResult UpdateDataDrivenRule(int? id)
         {
-            if (id == null)
+            try
             {
-                throw new Exception("This is a bad request. You should select the rule to edit first.");
-            }
+                if (id == null)
+                {
+                    throw new Exception("This is a bad request. You should select the rule to edit first.");
+                }
 
-            var rule = rulesEditor.SearchDataDrivenRuleById((int)id);
-            if (rule == null)
-            {
-                throw new Exception("Sorry, there is an error finding the rule to edit. Please try again later.");
+                var rule = rulesEditor.SearchDataDrivenRuleById((int)id);
+                if (rule == null)
+                {
+                    throw new Exception("Sorry, there is an error finding the rule to edit. Please try again later.");
+                }
+                return View(rule);
+
             }
-            return View(rule);
+            catch (Exception e)
+            {
+                return View("Error", new HandleErrorInfo(e, "Editor", "UpdateDataDrivenRule"));
+            }
         }
 
 
@@ -129,15 +157,23 @@ namespace Assignment2.WebApplication.Controllers
         [HttpPost]
         public ActionResult UpdateDataDrivenRule(DataDrivenRules rule)
         {
-            if (ModelState.IsValid)
+            try
             {
-                rule.LastEditorID = User.Identity.Name;
-                rulesEditor.UpdateDataDrivenRule(rule);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    rule.LastEditorID = User.Identity.Name;
+                    rulesEditor.UpdateDataDrivenRule(rule);
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View(rule);
+                }
+
             }
-            else
+            catch (Exception e)
             {
-                return View(rule);
+                return View("Error", new HandleErrorInfo(e, "Editor", "UpdateDataDrivenRule"));
             }
 
         }
@@ -146,17 +182,24 @@ namespace Assignment2.WebApplication.Controllers
         // Control the view when editing a fixed rule
         public ActionResult UpdateFixedRule(int? id)
         {
-            if (id == null)
+            try
             {
-                throw new Exception("This is a bad request. You should select the rule to edit first.");
-            }
+                if (id == null)
+                {
+                    throw new Exception("This is a bad request. You should select the rule to edit first.");
+                }
 
-            var rule = rulesEditor.SearchFixedRuleById((int)id);
-            if (rule == null)
-            {
-                throw new Exception("Sorry, there is an error finding the rule to edit. Please try again later.");
+                var rule = rulesEditor.SearchFixedRuleById((int)id);
+                if (rule == null)
+                {
+                    throw new Exception("Sorry, there is an error finding the rule to edit. Please try again later.");
+                }
+                return View(rule);
             }
-            return View(rule);
+            catch (Exception e)
+            {
+                return View("Error", new HandleErrorInfo(e, "Editor", "UpdateFixedRule"));
+            }
         }
 
 
@@ -165,15 +208,22 @@ namespace Assignment2.WebApplication.Controllers
         [HttpPost]
         public ActionResult UpdateFixedRule(FixedRules rule)
         {
-            if (ModelState.IsValid)
+            try
             {
-                rule.LastEditorID = User.Identity.Name;
-                rulesEditor.UpdateFixedRule(rule);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    rule.LastEditorID = User.Identity.Name;
+                    rulesEditor.UpdateFixedRule(rule);
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View(rule);
+                }
             }
-            else
+            catch (Exception e)
             {
-                return View(rule);
+                return View("Error", new HandleErrorInfo(e, "Editor", "UpdateFixedRule"));
             }
 
         }
@@ -183,18 +233,26 @@ namespace Assignment2.WebApplication.Controllers
         // Control the view when deleting a data-driven rule
         public ActionResult DeleteDataDrivenRule(int? id)
         {
-            if (id == null)
+            try
             {
-                throw new Exception("This is a bad request. You should select the rule to delete first.");
-            }
 
-            var rule = rulesEditor.SearchDataDrivenRuleById((int)id);
-            if (rule == null)
+                if (id == null)
+                {
+                    throw new Exception("This is a bad request. You should select the rule to delete first.");
+                }
+
+                var rule = rulesEditor.SearchDataDrivenRuleById((int)id);
+                if (rule == null)
+                {
+                    throw new Exception("Sorry, there is an error finding the rule to delete. Please try again later.");
+                }
+
+                return View(rule);
+            }
+            catch (Exception e)
             {
-                throw new Exception("Sorry, there is an error finding the rule to delete. Please try again later.");
+                return View("Error", new HandleErrorInfo(e, "Editor", "DeleteDataDrivenRule"));
             }
-
-            return View(rule);
         }
 
 
@@ -203,14 +261,22 @@ namespace Assignment2.WebApplication.Controllers
         [HttpPost, ActionName("DeleteDataDrivenRule")]
         public ActionResult DeleteDataDrivenRuleConfirmed(int id)
         {
-            var rule = rulesEditor.SearchDataDrivenRuleById((int)id);
-            if (rule == null)
+            try
             {
-                throw new Exception("Sorry, there is an error deleting this rule. Please try again later.");
-            }
-            rulesEditor.DeleteDataDrivenRule(rule);
+                var rule = rulesEditor.SearchDataDrivenRuleById((int)id);
+                if (rule == null)
+                {
+                    throw new Exception("Sorry, there is an error deleting this rule. Please try again later.");
+                }
+                rulesEditor.DeleteDataDrivenRule(rule);
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+
+            }
+            catch (Exception e)
+            {
+                return View("Error", new HandleErrorInfo(e, "Editor", "DeleteDataDrivenRuleConfirmed"));
+            }
         }
 
 
@@ -218,18 +284,25 @@ namespace Assignment2.WebApplication.Controllers
         // Control the view when deleting a data-driven rule
         public ActionResult DeleteFixedRule(int? id)
         {
-            if (id == null)
+            try
             {
-                throw new Exception("This is a bad request. You should select the rule to delete first.");
-            }
+                if (id == null)
+                {
+                    throw new Exception("This is a bad request. You should select the rule to delete first.");
+                }
 
-            var rule = rulesEditor.SearchFixedRuleById((int)id);
-            if (rule == null)
+                var rule = rulesEditor.SearchFixedRuleById((int)id);
+                if (rule == null)
+                {
+                    throw new Exception("Sorry, there is an error finding the rule to delete. Please try again later.");
+                }
+
+                return View(rule);
+            }
+            catch (Exception e)
             {
-                throw new Exception("Sorry, there is an error finding the rule to delete. Please try again later.");
+                return View("Error", new HandleErrorInfo(e, "Editor", "DeleteFixedRule"));
             }
-
-            return View(rule);
         }
 
 
@@ -238,14 +311,22 @@ namespace Assignment2.WebApplication.Controllers
         [HttpPost, ActionName("DeleteFixedRule")]
         public ActionResult DeleteFixedRuleConfirmed(int id)
         {
-            var rule = rulesEditor.SearchFixedRuleById((int)id);
-            if (rule == null)
+            try
             {
-                throw new Exception("Sorry, there is an error deleting this rule. Please try again later.");
-            }
-            rulesEditor.DeleteFixedRule(rule);
+                var rule = rulesEditor.SearchFixedRuleById((int)id);
+                if (rule == null)
+                {
+                    throw new Exception("Sorry, there is an error deleting this rule. Please try again later.");
+                }
+                rulesEditor.DeleteFixedRule(rule);
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+
+            }
+            catch (Exception e)
+            {
+                return View("Error", new HandleErrorInfo(e, "Editor", "DeleteFixedRuleConfirmed"));
+            }
         }
 
 
@@ -253,14 +334,22 @@ namespace Assignment2.WebApplication.Controllers
         // Control the view of the editor report
         public ActionResult EditorReport()
         {
-            AllLists allLists = new AllLists();
-            allLists.ApprovedDataDrivenRules = rulesEditor.GetYourDataDrivenRulesByStatus("Approved", User.Identity.Name);
-            allLists.ApprovedFixedRules = rulesEditor.GetYourFixedRulesByStatus("Approved", User.Identity.Name);
-            allLists.RejectedRulesCount = rulesEditor.CountRejectedRules(User.Identity.Name);
-            allLists.ApprovedRulesCount = rulesEditor.CountApprovedRules(User.Identity.Name);
-            allLists.SuccessRate = String.Format("{0:P}", rulesEditor.SuccessRate(User.Identity.Name));
+            try
+            {
+                AllLists allLists = new AllLists();
+                allLists.ApprovedDataDrivenRules = rulesEditor.GetYourDataDrivenRulesByStatus("Approved", User.Identity.Name);
+                allLists.ApprovedFixedRules = rulesEditor.GetYourFixedRulesByStatus("Approved", User.Identity.Name);
+                allLists.RejectedRulesCount = rulesEditor.CountRejectedRules(User.Identity.Name);
+                allLists.ApprovedRulesCount = rulesEditor.CountApprovedRules(User.Identity.Name);
+                allLists.SuccessRate = String.Format("{0:P}", rulesEditor.SuccessRate(User.Identity.Name));
 
-            return View(allLists);
+                return View(allLists);
+
+            }
+            catch (Exception e)
+            {
+                return View("Error", new HandleErrorInfo(e, "Editor", "EditorReport"));
+            }
         }
     }
 }
