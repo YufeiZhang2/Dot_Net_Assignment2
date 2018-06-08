@@ -31,7 +31,7 @@ namespace Assignment2.Bussiness
         /// Add new weatherInfo
         /// </summary>
         /// <param name="weatherInfo">The new weatheinfo to be added</param>
-        public static void AddWeatherInfo(WeatherInfo weatherInfo)
+        public void AddWeatherInfo(WeatherInfo weatherInfo)
         {
             using (Context context = new Context())
             {

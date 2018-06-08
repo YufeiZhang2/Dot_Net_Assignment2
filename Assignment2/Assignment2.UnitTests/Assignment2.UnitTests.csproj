@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApproverTest.cs" />
+    <Compile Include="MaintainerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionTest.cs" />
     <Compile Include="EditorTest.cs" />

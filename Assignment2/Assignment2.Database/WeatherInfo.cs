@@ -36,7 +36,7 @@ namespace Assignment2.Database
     {
         Sunday,
         Monday,
-        Tueday,
+        Tuesday,
         Wednesday,
         Thursday,
         Friday,
