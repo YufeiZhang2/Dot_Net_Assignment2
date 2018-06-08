@@ -59,7 +59,7 @@ namespace Assignment2.WebApplication.Controllers
                     else
                     {
                         weatherInfo.LastMaintainerId = User.Identity.Name;
-                        Maintainer.AddWeatherInfo(weatherInfo);
+                       maintainer.AddWeatherInfo(weatherInfo);
                     }
 
                 }
