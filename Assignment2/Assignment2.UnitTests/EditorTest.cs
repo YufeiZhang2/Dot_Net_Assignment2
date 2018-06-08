@@ -28,8 +28,8 @@ namespace Assignment2.UnitTests
         /// </summary>
         /// <param name="ruleId">The rule Id</param>
         [Test]
-        [TestCase(39)]
-        [TestCase(1)]
+        [TestCase(28)]
+        [TestCase(29)]
         public void DeleteDataDrivenRules_DeleteData_DeleteSuccessfully(int ruleId)
         {
             var rule = rulesEditor.SearchDataDrivenRuleById(ruleId);

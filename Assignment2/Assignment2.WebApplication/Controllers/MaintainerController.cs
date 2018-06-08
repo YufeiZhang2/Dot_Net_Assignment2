@@ -20,26 +20,30 @@ namespace Assignment2.WebApplication.Controllers
 
     }
 
+    // Redirecting to the error page when an exception occurs.
     [HandleError(ExceptionType = typeof(Exception), View = "Error")]
+    // Authorizing the role of maintainer
     [Authorize(Roles = RoleName.Maintainer)]
     public class MaintainerController : Controller
     {
         private Maintainer maintainer = new Maintainer();
 
-        // GET: Maitainer
+        // Control the view of maintainer main page
+        // GET: Maintainer
         public ActionResult Index()
         {
             // Set the LastMaintainerID as the current logged-in user
-
             return View(Maintainer.GetWeatherInfos(User.Identity.Name).ToList());
 
         }
 
+        // Control the view when adding new weatherInfo
         public ActionResult AddWeatherInfo()
         {
             return View();
         }
 
+        // Control the view and action after submitting the new WeatherInfo
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddWeatherInfo(WeatherInfo weatherInfo, string day)
@@ -64,6 +68,8 @@ namespace Assignment2.WebApplication.Controllers
             }
         }
 
+        // Control the view when updating the WeatherInfo
+        // throws exception if day is not found
         public ActionResult EditWeatherInfo(string day)
         {
             if (day == null)
@@ -78,7 +84,7 @@ namespace Assignment2.WebApplication.Controllers
             return View(weatherInfo);
         }
 
-      
+        // Control the view and action after submitting the update of the weatherInfo
         [HttpPost]
         public ActionResult EditWeatherInfo(WeatherInfo weatherInfo)
         {
@@ -87,6 +93,7 @@ namespace Assignment2.WebApplication.Controllers
             return RedirectToAction("Index");
         }
 
+        // Control the view when deleting weatherInfo with the given day
         public ActionResult DeleteWeatherInfo(string day)
         {
             if (day == null)
@@ -101,8 +108,8 @@ namespace Assignment2.WebApplication.Controllers
             return View(_weatherinfo);
         }
 
-        // POST: PersonalContacts/Delete/5
-        // Delete a weatherinfo
+        // Control the view and action after confirming the deletion of weatherInfo
+        // throws exception when the day does not exist
         [HttpPost, ActionName("DeleteWeatherInfo")]
         public ActionResult DeleteConfirmed(string day)
         {

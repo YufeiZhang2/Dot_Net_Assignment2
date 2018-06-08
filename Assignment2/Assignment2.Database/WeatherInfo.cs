@@ -25,7 +25,7 @@ namespace Assignment2.Database
         [Required(ErrorMessage = "Please enter characters only")]
         public string Outfit { get; set; }
 
-        [Required(ErrorMessage = "Temperature must be numeric & 2 digits only ")]
+        [Required(ErrorMessage = "Temperature must be numeric")]
         public int Temperature { get; set; }
 
         [StringLength(30)]

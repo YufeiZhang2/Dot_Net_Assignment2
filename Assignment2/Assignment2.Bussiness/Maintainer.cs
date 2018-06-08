@@ -27,7 +27,10 @@ namespace Assignment2.Bussiness
             }
 
         }
-
+        /// <summary>
+        /// Add new weatherInfo
+        /// </summary>
+        /// <param name="weatherInfo">The new weatheinfo to be added</param>
         public static void AddWeatherInfo(WeatherInfo weatherInfo)
         {
             using (Context context = new Context())
@@ -42,7 +45,7 @@ namespace Assignment2.Bussiness
         /// <summary>
         /// Remove a data in Weatherinfo
         /// </summary>
-        /// <param name="weatherInfo">The contact to remove</param>
+        /// <param name="weatherInfo">The weatherInfo to remove</param>
         public void Delete(WeatherInfo weatherInfo)
         {
             using (var context = new Context())
@@ -55,23 +58,28 @@ namespace Assignment2.Bussiness
         }
 
         /// <summary>
-        /// Updates weatherinfo
+        /// Update weatherinfo 
         /// </summary>
-        /// <param name="weatherInfo">The contact to be updated (matching is performed based on the Id)</param>
+        /// <param name="weatherInfo"></param>
         public void Update(WeatherInfo weatherInfo)
         {
             using (var context = new Context())
             {
-                var updated = context.WeatherInfo.Find(weatherInfo.Day);
-                if (updated != null)
+                var toUpdate = context.WeatherInfo.Find(weatherInfo.Day);
+                if (toUpdate != null)
                 {
-                    context.Entry(updated).CurrentValues.SetValues(weatherInfo);
+                    context.Entry(toUpdate).CurrentValues.SetValues(weatherInfo);
                     context.SaveChanges();
                 }
                
             }
         }
 
+        /// <summary>
+        /// Search WeatherInfo by given ID
+        /// </summary>
+        /// <param name="id">ID of weatherInfo</param>
+        /// <returns>The data with given ID</returns>
         public WeatherInfo SearchById(int id)
         {
             using (var context = new Context())
@@ -83,8 +91,13 @@ namespace Assignment2.Bussiness
             }
         }
 
+        /// <summary>
+        /// Search WeatherInfo by given ID
+        /// </summary>
+        /// <param name="day">DAY of the WeatherInfo</param>
+        /// <returns>The data with given day</returns>
         public WeatherInfo SearchByDay(string day)
-            {
+        {
                 using (var context = new Context())
                 {
                     return (from w in context.WeatherInfo
@@ -93,7 +106,7 @@ namespace Assignment2.Bussiness
 
                 }
 
-            }
+        }
     }
 }
     
