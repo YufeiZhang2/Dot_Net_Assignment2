@@ -107,9 +107,16 @@ namespace Assignment2.WebApplication.Controllers
         {
             try
             {
-                weatherInfo.LastMaintainerId = User.Identity.Name;
-                maintainer.Update(weatherInfo);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    weatherInfo.LastMaintainerId = User.Identity.Name;
+                    maintainer.Update(weatherInfo);
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View(weatherInfo);
+                }
 
             }
             catch (Exception e)
