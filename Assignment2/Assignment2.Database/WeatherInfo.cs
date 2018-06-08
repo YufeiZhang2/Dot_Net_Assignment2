@@ -17,15 +17,15 @@ namespace Assignment2.Database
 
         
         [MaxLength(20)]
-        [Required(ErrorMessage = "Please enter characters only")]
+        [Required(ErrorMessage = "The weather field is required")]
         public string Weather { get; set; }
 
         
         [MaxLength(30)]
-        [Required(ErrorMessage = "Please enter characters only")]
+        [Required(ErrorMessage = "The outfit field is required")]
         public string Outfit { get; set; }
 
-        [Required(ErrorMessage = "Temperature must be numeric")]
+        [Required(ErrorMessage = "The temperature field is required, and it should be number.")]
         public int Temperature { get; set; }
 
         [StringLength(30)]
