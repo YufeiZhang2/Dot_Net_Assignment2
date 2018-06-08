@@ -35,7 +35,8 @@ namespace Assignment2.WebApplication.Controllers
             }
             catch (Exception e)
             {
-                throw new Exception("Sorry, we have gotten a problem of finding the uncheck rules right now.",e);
+                return View("Error", new HandleErrorInfo(new Exception("Sorry, we have gotten a problem of finding the unchecked rules right now.",e), 
+                    "Approver", "Index"));
             }
             
         }
@@ -50,7 +51,8 @@ namespace Assignment2.WebApplication.Controllers
             }
             catch (Exception e)
             {
-                throw new Exception("Sorry, approving the rules has just failed.",e);
+                return View("Error", new HandleErrorInfo(new Exception("Sorry, approving the rules has just failed.", e),
+                    "Approver", "Index"));
             }
                
         }
@@ -65,8 +67,8 @@ namespace Assignment2.WebApplication.Controllers
             }
             catch (Exception e)
             {
-                
-                throw new Exception("Sorry, approving the rules has just failed.",e);
+                return View("Error", new HandleErrorInfo(new Exception("Sorry, approving the rules has just failed.", e),
+                    "Approver", "Index"));
             }
             
         }
@@ -81,7 +83,8 @@ namespace Assignment2.WebApplication.Controllers
             }
             catch (Exception e)
             {
-                throw new Exception("Sorry, rejecting the rules has just failed.",e);
+                return View("Error", new HandleErrorInfo(new Exception("Sorry, rejecting the rules has just failed.", e),
+                    "Approver", "Index"));
             }
             
         }
@@ -96,7 +99,8 @@ namespace Assignment2.WebApplication.Controllers
             }
             catch (Exception e)
             {
-                throw new Exception("Sorry, rejecting the rules has just failed.",e);
+                return View("Error", new HandleErrorInfo(new Exception("Sorry, rejecting the rules has just failed.", e),
+                    "Approver", "Index"));
             }
             
         }
@@ -122,7 +126,8 @@ namespace Assignment2.WebApplication.Controllers
             }
             catch (Exception e)
             {
-                throw new Exception("Sorry, we have gotten a problem of showing the approver report right now.", e);
+                return View("Error", new HandleErrorInfo(new Exception("Sorry, we have gotten a problem of showing the approver report right now.", e),
+                    "Approver", "Index"));
             }
            
         }
@@ -176,7 +181,9 @@ namespace Assignment2.WebApplication.Controllers
             }
             catch (Exception e)
             {
-                throw new Exception("Sorry, we have gotten a problem of showing the approver report for editors right now.", e);
+                return View("Error", new HandleErrorInfo(
+                    new Exception("Sorry, we have gotten a problem of showing the approver report for editors right now.", e),
+                    "Approver", "Index"));
             }
             
         }
